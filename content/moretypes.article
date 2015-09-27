@@ -1,117 +1,116 @@
-More types: structs, slices, and maps.
-Learn how to define types based on existing ones: this lesson covers structs, arrays, slices, and maps.
+Tipe lanjut: struct, slice, dan map.
+Belajar cara mendefinisikan tipe: pelajaran ini membahas struct, array, slice, dan map.
 
 The Go Authors
 http://golang.org
 
-* Pointers
+* Pointer
 
-Go has pointers.
-A pointer holds the memory address of a variable.
+Go memiliki pointer.
+Sebuah pointer menyimpan alamat dari sebuah variabel.
 
-The type `*T` is a pointer to a `T` value. Its zero value is `nil`.
+Tipe `*T` adalah pointer ke sebuah nilai `T`.
+Nilai kosongnya adalah `nil`.
 
 	var p *int
 
-The `&` operator generates a pointer to its operand.
+Operator `&` mengembalikan operan pointer dari variabel.
 
 	i := 42
 	p = &i
 
-The `*` operator denotes the pointer's underlying value.
+Operator `*` mengembalikan nilai yang ditunjuk oleh pointer.
 
-	fmt.Println(*p) // read i through the pointer p
-	*p = 21         // set i through the pointer p
+	fmt.Println(*p) // baca nilai i lewat pointer p
+	*p = 21         // set nilai i lewat pointer p
 
-This is known as "dereferencing" or "indirecting".
+Cara ini disebut dengan "dereferencing" atau "indirecting".
 
-Unlike C, Go has no pointer arithmetic.
+Tidak seperti C, Go tidak memiliki fungsi aritmatika pada pointer.
 
 .play moretypes/pointers.go
 
-* Structs
+* Tipe data abstrak "struct"
 
-A `struct` is a collection of fields.
-
-(And a `type` declaration does what you'd expect.)
+Sebuah `struct` adalah kumpulan dari berbagai variabel.
 
 .play moretypes/structs.go
 
-* Struct Fields
+* Bagian dari struct
 
-Struct fields are accessed using a dot.
+Bagian dari struct diakses menggunakan sebuah titik.
 
 .play moretypes/struct-fields.go
 
-* Pointers to structs
+* Pointer ke struct
 
-Struct fields can be accessed through a struct pointer.
-
-The indirection through the pointer is transparent.
+Bagian dari struct juga bisa diakses lewat pointer ke struct.
 
 .play moretypes/struct-pointers.go
 
-* Struct Literals
+* Inisialisasi struct
 
-A struct literal denotes a newly allocated struct value by listing the values of its fields.
+Sebuah `struct` bisa dibuat dengan mengisinya dengan nilai bagian-bagiannya.
 
-You can list just a subset of fields by using the `Name:` syntax. (And the order of named fields is irrelevant.)
+Anda juga bisa mengisi hanya sebagian dari kolom dengan menggunakan sintaks `Name:` (urutan dari bagian-bagiannya tidak berpengaruh).
 
-The special prefix `&` returns a pointer to the struct value.
+Prefik `&` mengembalikan sebuah pointer ke `struct`.
 
 .play moretypes/struct-literals.go
 
-* Arrays
+* Array
 
-The type `[n]T` is an array of `n` values of type `T`.
+Deklarasi tipe dengan `[n]T` adalah untuk array dengan jumlah `n` dan bertipe `T`.
 
-The expression
+Ekspresi
 
 	var a [10]int
 
-declares a variable `a` as an array of ten integers.
+mendeklarasikan sebuah variabel `a` sebagai sebuah array dari sepuluh integer.
 
-An array's length is part of its type, so arrays cannot be resized.
-This seems limiting, but don't worry;
-Go provides a convenient way of working with arrays.
+Panjang sebuah array adalah bagian dari tipenya, jadi array tidak bisa diubah ukurannya.
+Hal ini sepertinya membatasi, tapi jangan khawatir;
+Go menyediakan cara yang mudah untuk bekerja dengan array.
 
 .play moretypes/array.go
 
-* Slices
+* Potongan ("slice")
 
-A slice points to an array of values and also includes a length.
+Sebuah _slice_ mengacu pada sebuah nilai array dan juga mengikutkan panjangnya.
 
-`[]T` is a slice with elements of type `T`.
+`[]T` adalah sebuah slice dengan elemen bertipe `T`.
 
 .play moretypes/slices.go
 
-* Slicing slices
+* Memotong "slice"
 
-Slices can be re-sliced, creating a new slice value that points to the same array.
+Slice bisa dipotong lagi, menghasilkan nilai potongan baru yang mengacu ke array yang sama.
 
-The expression
+Ekspresi
 
 	s[lo:hi]
 
-evaluates to a slice of the elements from `lo` through `hi-1`, inclusive. Thus
+mengevaluasi ke potongan dari elemen `lo` sampai `hi-1`, secara inklusif.
+Maka
 
 	s[lo:lo]
 
-is empty and
+adalah kosong dan
 
 	s[lo:lo+1]
 
-has one element.
+hanya memiliki satu elemen.
 
 .play moretypes/slicing-slices.go
 
-* Making slices
+* Membuat potongan
 
-Slices are created with the `make` function. It works by allocating a zeroed array and returning a slice that refers to that array:
+Potongan dibuat dengan fungsi `make`.
+Ia bekerja dengan mengalokasikan array kosong dan mengembalikan potongan yang mengacu pada array tersebut:
 
 	a := make([]int, 5)  // len(a)=5
 
-To specify a capacity, pass a third argument to `make`:
+Untuk menentukan kapasitasnya, tambahkan argumen ketiga pada `make`:
 
 	b := make([]int, 0, 5) // len(b)=0, cap(b)=5
 
@@ -120,142 +119,158 @@ To specify a capacity, pass a third argument to `make`:
 
 .play moretypes/making-slices.go
 
-* Nil slices
+* Slice yang Nil
 
-The zero value of a slice is `nil`.
+Nilai kosong dari sebuah slice adalah `nil`.
 
-A nil slice has a length and capacity of 0.
+Slice yang nil memiliki panjang dan kapasitas 0.
 
 .play moretypes/nil-slices.go
 
-* Adding elements to a slice
+* Menambahkan elemen ke slice
 
-It is common to append new elements to a slice, and so Go provides a built-in
-`append` function. The [[http://golang.org/pkg/builtin/#append][documentation]]
-of the built-in package describes `append`.
+Sangat umum untuk menambahkan elemen ke slice, sehingga Go menyediakan fungsi `append`.
+[[http://golang.org/pkg/builtin/#append][Dokumentasinya]]
+menjelaskan lebih lanjut dari fungsi `append`.
 
 	func append(s []T, vs ...T) []T
 
-The first parameter `s` of `append` is a slice of type `T`, and the rest are
-`T` values to append to the slice.
+Parameter pertama `s` dari `append` adalah sebuah slice dengan tipe `T`, dan sisanya adalah nilai `T` yang akan ditambahkan ke slice.
 
-The resulting value of `append` is a slice containing all the elements of the
-original slice plus the provided values.
+Hasil dari `append` yaitu sebuah slice yang berisi semua elemen dari slice awal berikut dengan nilai yang ditambahkan.
 
-If the backing array of `s` is too small to fit all the given values a bigger
-array will be allocated. The returned slice will point to the newly allocated
-array.
+Jika array awal `s` terlalu kecil untuk nilai yang ditambahkan, maka array yang lebih besar akan dialokasikan.
+Kembaliannya yaitu slice yang merujuk ke array yang baru dialokasikan.
 
-(To learn more about slices, read the [[http://blog.golang.org/go-slices-usage-and-internals][Slices: usage and internals]] article.)
+Untuk belajar lebih lanjut tentang slice, bacalah artikel
+[[http://blog.golang.org/go-slices-usage-and-internals][Slices: usage and internals]].
 
 .play moretypes/append.go
 
-* Range
+* Rentang ("range")
 
-The `range` form of the `for` loop iterates over a slice or map.
+Perintah `range` pada pengulangan `for` mengiterasi sebuah slice atau map.
 
 .play moretypes/range.go
 
-* Range continued
+* Rentang lanjutan
 
-You can skip the index or value by assigning to `_`.
+Anda bisa melewati indeks atau nilai pada iterasi dengan memberikan operan `_`.
 
-If you only want the index, drop the ", value" entirely.
+Jika anda hanya menginginkan indeks saja, hapus seluruh bagian ", value".
 
 .play moretypes/range-continued.go
 
-* Exercise: Slices
+* Latihan: Slice
 
-Implement `Pic`. It should return a slice of length `dy`, each element of which is a slice of `dx` 8-bit unsigned integers. When you run the program, it will display your picture, interpreting the integers as grayscale (well, bluescale) values.
+Implementasikan `Pic`.
+Fungsi tersebut harus mengembalikan sebuah slice dengan panjang `dy`, setiap elemennya merupakan sebuah slice `dx` 8-bit unsigned integer.
+Saat anda menjalankan program, ia akan menampilkan gambar anda, mengiterpretasikan nilai integer dengan warna abu-abu.
 
-The choice of image is up to you. Interesting functions include `(x+y)/2`, `x*y`, and `x^y`.
+Pilihan gambarnya terserah anda.
+Fungsi menarik yang bisa diikutkan berupa `(x+y)/2`, `x*y`, dan `x^y`.
 
-(You need to use a loop to allocate each `[]uint8` inside the `[][]uint8`.)
+Petunjuk:
 
-(Use `uint8(intValue)` to convert between types.)
+- Anda membutuhkan penggunaan sebuah pengulangan untuk mengalokasi `[]uint8` di dalam `[][]uint8`.
+
+- Gunakan `uint8(intValue)` untuk mengkonversi antara tipe.
 
 .play moretypes/exercise-slices.go
 
-* Maps
+* Map
 
-A map maps keys to values.
+Sebuah map memetakan sebuah kunci (_key_) dengan nilainya.
 
-Maps must be created with `make` (not `new`) before use; the `nil` map is empty and cannot be assigned to.
+Map harus dibuat dengan `make` (bukan `new`) sebelum dapat digunakan;
+map yang `nil` adalah kosong dan tidak dapat diisi.
 
 .play moretypes/maps.go
 
-* Map literals
+* Penggunaan Map
 
-Map literals are like struct literals, but the keys are required.
+Penggunaan map seperti pada penggunaan struct, tapi dengan membubuhkan key-nya.
 
 .play moretypes/map-literals.go
 
-* Map literals continued
+* Penggunaan map lanjutan
 
-If the top-level type is just a type name, you can omit it from the elements of the literal.
+Jika level teratas dari tipe hanya nama tipe, anda bisa menghilangkannya dari inisialisasi elemen map.
 
 .play moretypes/map-literals-continued.go
 
-* Mutating Maps
+* Operasi map
 
-Insert or update an element in map `m`:
+Pengisian atau mengubah elemen dalam map `m`:
 
 	m[key] = elem
 
-Retrieve an element:
+Mengambil elemen:
 
 	elem = m[key]
 
-Delete an element:
+Menghapus elemen:
 
 	delete(m, key)
 
-Test that a key is present with a two-value assignment:
+Menguji apakah sebuah key ada dalam map:
 
 	elem, ok = m[key]
 
-If `key` is in `m`, `ok` is `true`. If not, `ok` is `false` and `elem` is the zero value for the map's element type.
+Jika `key` ada dalam `m`, `ok` bernilai `true`.
+Jika tidak ada, `ok` bernilai `false` dan `elem` berisi nilai kosong sesuai dengan tipe elemen.
 
-Similarly, when reading from a map if the key is not present the result is the zero value for the map's element type.
+Hal yang sama, saat membaca dari sebuah map jika key tidak ada maka hasilnya adalah nilai kosong dari tipe elemen map tersebut.
 
-_Note_: if `elem` or `ok` have not yet been declared you could use a short declaration form:
+_Catatan_: jika `elem` atau `ok` belum dideklarasikan anda bisa menggunakan bentuk deklarasi singkat berikut:
 
 	elem, ok := m[key]
 
 .play moretypes/mutating-maps.go
 
-* Exercise: Maps
+* Latihan: map
 
-Implement `WordCount`.  It should return a map of the counts of each “word” in the string `s`. The `wc.Test` function runs a test suite against the provided function and prints success or failure.
+Implementasikan `WordCount`.
+Fungsi tersebut mengembalikan sebuah map dari penghitungan setiap "kata" di dalam string `s`.
+Fungsi `wc.Test` menjalankan pengujian terhadap fungsi yang diberikan dan mencetak sukses atau salah.
 
-You might find [[http://golang.org/pkg/strings/#Fields][strings.Fields]] helpful.
+Anda mungkin menemukan artikel
+[[http://golang.org/pkg/strings/#Fields][strings.Fields]]
+membantu anda.
 
 .play moretypes/exercise-maps.go
 
-* Function values
+* Nilai Fungsi
 
-Functions are values too.
+Fungsi adalah suatu nilai juga.
 
 .play moretypes/function-values.go
 
-* Function closures
+* Fungsi closure
 
-Go functions may be closures. A closure is a function value that references variables from outside its body. The function may access and assign to the referenced variables; in this sense the function is "bound" to the variables.
+Fungsi pada Go bisa _closure_.
+_Closure_ adalah sebuah nilai fungsi yang merujuk variabel dari blok fungsinya.
+Fungsi closure bisa mengakses dan mengisi variabel yang dirujuk;
+dalam artian fungsi tersebut "terikat" ke variabel.
 
-For example, the `adder` function returns a closure. Each closure is bound to its own `sum` variable.
+Sebagai contohnya, fungsi `adder` mengembalikan sebuah closure.
+Setiap closure terikat dengan variabel `sum` -nya sendiri.
 
 .play moretypes/function-closures.go
 
-* Exercise: Fibonacci closure
+* Latihan: Fibonacci dengan closure
 
-Let's have some fun with functions.
+Mari bermain dengan fungsi.
 
-Implement a `fibonacci` function that returns a function (a closure) that returns successive fibonacci numbers.
+Implementasikan sebuah fungsi `fibonacci` yang mengembalikan sebuah fungsi (closure) yang mengembalikan bilangan fibonacci.
 
 .play moretypes/exercise-fibonacci-closure.go
 
-* Congratulations!
+* Selamat!
 
-You finished this lesson!
+Anda telah menyelesaikan pelajaran ini!
 
-You can go back to the list of [[/list][modules]] to find what to learn next, or continue with the [[javascript:click('.next-page')][next lesson]].
+Anda bisa kembali ke daftar
+[[/list][modul]]
+untuk melihat apa yang bisa dipelajari selanjutnya, atau meneruskan dengan
+[[javascript:click(".next-page")][pelajaran selanjutnya]].
