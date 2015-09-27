@@ -49,10 +49,10 @@ value('translation', {
     'submit-feedback': 'Kirim umpan-balik tentang halaman ini',
 
     // GitHub issue template: update repo and messaging when translating.
-    'github-repo': 'github.com/golang/go',
-    'issue-title': 'tour: [REPLACE WITH SHORT DESCRIPTION]',
-    'issue-message': 'Change the title above to describe your issue and add your feedback here, including code if necessary',
-    'context': 'Context',
+    'github-repo': 'github.com/shuLhan/tour',
+    'issue-title': 'tur: [GANTI DENGAN DESKRIPSI SINGKAT]',
+    'issue-message': 'Ganti judul di atas dan jelaskan isu yang anda hadapi di sini, ikutkan kode jika diperlukan',
+    'context': 'Konteks',
 }).
 
 // Config for codemirror plugin
