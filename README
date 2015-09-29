@@ -1,13 +1,18 @@
-This is Go Tour, an introduction to the Go programming language.
+Ini adalah aplikasi Tur Go, sebuah pendahuluan tentang bahasa Pemrograman Go.
 
-To install the tour locally, first install Go, then run:
+Versi mayanya bisa dilihat di
+[http://go-tour-id2.appspot.com](http://go-tour-id2.appspot.com)
+, yang diperbarui paling lambat tujuh hari sekali bergantung kepada perubahan
+di cabang `master` (yang berbahasa Inggris).
+
+Untuk memasang tur ini secara lokal, pertama pasang Go, kemudian jalankan
 
 	$ go get golang.org/x/tour/gotour
 	$ cd $GOPATH/bin
 	$ ./gotour
 
-Unless otherwise noted, the go-tour source files are distributed
-under the BSD-style license found in the LICENSE file.
+Kecuali bila ada catatan tambahan, berkas sumber didistribusikan dengan gaya 
+lisensi BSD yang bisa dibaca di berkas LICENSE.
 
-Contributions should follow the same procedure as for the Go project:
-http://golang.org/doc/contribute.html
+Untuk berkontribusi dalam repositori ini silahkan kirim permintaan *pull* atau
+tambahkan di bagian [isu](https://github.com/shuLhan/tour/issues).
