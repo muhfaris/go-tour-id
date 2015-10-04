@@ -87,11 +87,12 @@ Fungsi `swap` mengembalikan dua `string`.
 
 * Kembalian bernama
 
-Nilai kembalian pada Go bisa dinamakan dan berlaku seperti variabel.
+Nilai kembalian pada Go bisa diberi nama.
+Caranya yaitu dengan mendefinisikannya di dalam fungsi, sehingga mereka diperlakukan seperti variabel.
 
 Penamaan tersebut seharusnya digunakan untuk mendokumentasikan makna dari nilai kembalian.
 
-Sebuah perintah `return` tanpa kembalian mengembalikan nilai sekarang dari setiap variabel kembalian.
+Sebuah perintah `return` tanpa argumen mengembalikan nilai dari kembalian bernama.
 Hal ini dikenal dengan kembalian "naked".
 
 Perintah kembalian "naked" sebaiknya hanya digunakan pada fungsi yang singkat, seperti pada contoh di sebelah, karena bisa mengganggu pembacaan kode bila digunakan pada fungsi yang panjang.
