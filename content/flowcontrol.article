@@ -50,6 +50,8 @@ Variabel yang dideklarasikan pada perintah singkat tersebut hanya berlaku sampai
 
 Variabel yang dideklarasikan dalam perintah singkat `if` juga dapat digunakan dalam blok `else`.
 
+(Kedua pemanggilan terhadap `pow` dieksekusi sebelum pemanggilan `main` terhadap `fmt.Println` dilakukan.)
+
 .play flowcontrol/if-and-else.go
 
 * Latihan: Pengulangan dan Fungsi

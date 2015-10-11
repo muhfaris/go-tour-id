@@ -15,7 +15,7 @@ Program ini menggunakan paket dengan meng-`import` `"fmt"` dan `"math/rand"`.
 Aturannya, nama paket sama dengan elemen terakhir dari path `import`.
 Sebagai contohnya, paket `"math/rand"` terdiri dari berkas-berkas yang dimulai dengan perintah `package`rand`.
 
-#appengine: *Catatan:* lingkungan di mana program berjalan adalah deterministik, jadi `rand.Intn` akan selalu mengembalikan angka yang sama.
+#appengine: *Catatan:* lingkungan di mana program berjalan adalah deterministik, jadi setiap kali anda menjalankan contoh program `rand.Intn` akan selalu mengembalikan angka yang sama.
 #appengine:
 #appengine: (Untuk mendapatkan angka yang acak, tambahkan pembangkit angka; lihat
 #appengine: [[http://golang.org/pkg/math/rand/#Seed][`rand.Seed`]]
@@ -38,15 +38,17 @@ Tapi lebih baik menggunakan perintah import yang difaktorkan.
 
 * Nama-nama yang diekspor
 
-Setelah meng- `import` sebuah `package`, anda bisa merujuk pada nama yang diekspornya.
-
 Pada Go, sebuah nama diekspor jika ia diawali dengan huruf besar.
+
+Saat mengimport sebuah paket, anda hanya bisa mengacu pada nama yang dieksport.
+Setiap nama yang tidak di-eksport tidak akan bisa diakses dari luar paket.
 
 `Foo` adalah sebuah nama yang diekspor, sebagaimana juga `FOO`.
 Nama `foo` tidak diekspor.
 
-Jalankan kodenya.
-Kemudian ganti nama `math.pi` dengan `math.Pi` dan coba kembali.
+Jalankan kodenya. Perhatikan nanti akan ada pesan kesalahan.
+
+Untuk memperbaikinya, ganti nama `math.pi` dengan `math.Pi` dan coba kembali.
 
 .play basics/exported-names.go
 
@@ -219,6 +221,8 @@ Konstanta numerik adalah _nilai_ dengan presisi-tinggi.
 Konstanta yang tidak bertipe menggunakan tipe yang dibutuhkan sesuai dengan konteksnya.
 
 Coba cetak juga `needInt(Big)`.
+
+(Sebuah `int` dapat menyimpan sebanyak 64-bit integer, dan terkadang lebih sedikit, bergantung kepada mesin anda.)
 
 .play basics/numeric-constants.go
 

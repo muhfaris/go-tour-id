@@ -80,6 +80,8 @@ Sebuah _slice_ mengacu pada sebuah nilai array dan juga mengikutkan panjangnya.
 
 `[]T` adalah sebuah slice dengan elemen bertipe `T`.
 
+`len(s)` mengembalikan panjang dari slice `s`.
+
 .play moretypes/slices.go
 
 * Memotong "slice"
@@ -151,6 +153,9 @@ Untuk belajar lebih lanjut tentang slice, bacalah artikel
 
 Perintah `range` pada pengulangan `for` mengiterasi sebuah slice atau map.
 
+Saat melakukan pengulangan pada sebuah slice, dua nilai akan dikembalikan untuk setiap iterasi.
+Nilai yang pertama yaitu indeks, dan yang kedua yaitu salinan dari elemen pada indeks tersebut.
+
 .play moretypes/range.go
 
 * Rentang lanjutan
@@ -218,9 +223,7 @@ Menguji apakah sebuah key ada dalam map:
 	elem, ok = m[key]
 
 Jika `key` ada dalam `m`, `ok` bernilai `true`.
-Jika tidak ada, `ok` bernilai `false` dan `elem` berisi nilai kosong sesuai dengan tipe elemen.
-
-Hal yang sama, saat membaca dari sebuah map jika key tidak ada maka hasilnya adalah nilai kosong dari tipe elemen map tersebut.
+Jika `key` tidak ada dalam map, maka `elem` akan bernilai kosong bergantung kepada tipe elemen pada map.
 
 _Catatan_: jika `elem` atau `ok` belum dideklarasikan anda bisa menggunakan bentuk deklarasi singkat berikut:
 

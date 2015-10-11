@@ -79,6 +79,26 @@ Klik tombol
 [[javascript:highlightAndClick(".next-page")]["selanjutnya"]]
 atau tekan `PageDown` untuk melanjutkan.
 
+#appengine: * Go luring
+#appengine:
+#appengine: Tur ini juga tersedia dalam sebuah program tersendiri yang dapat anda gunakan tanpa akses ke internet.
+#appengine:
+#appengine: Tur yang berdiri sendiri lebih cepat, secara dia menjalankan kode program di komputer anda sendiri.
+#appengine:
+#appengine: Untuk menjalankan tur secara lokal pertama
+#appengine: [[http://golang.org/doc/install/][pasang Go]]
+#appengine: kemudian gunakan perintah
+#appengine: [[http://golang.org/cmd/go/][go get]]
+#appengine: untuk memasang
+#appengine: [[http://golang.org/x/tour/][gotour]]:
+#appengine:
+#appengine:	go get golang.org/x/tour/gotour
+#appengine:
+#appengine: dan jalankan `gotour`.
+#appengine:
+#appengine:	cd $GOPATH/bin
+#appengine:	./gotour
+
 #appengine: * Go Playground
 #appengine:
 #appengine: Tur ini dibuat dengan
