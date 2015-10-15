@@ -187,7 +187,7 @@ Petunjuk:
 
 Sebuah map memetakan sebuah kunci (_key_) dengan nilainya.
 
-Map harus dibuat dengan `make` (bukan `new`) sebelum dapat digunakan;
+Map harus dibuat dengan `make` sebelum dapat digunakan;
 map yang `nil` adalah kosong dan tidak dapat diisi.
 
 .play moretypes/maps.go
@@ -246,6 +246,9 @@ membantu anda.
 * Nilai Fungsi
 
 Fungsi adalah suatu nilai juga.
+Fungsi dapat digunakan seperti nilai yang lain.
+
+Nilai fungsi dapat digunakan pada argumen di fungsi yang lain dan sebagai kembalian.
 
 .play moretypes/function-values.go
 
