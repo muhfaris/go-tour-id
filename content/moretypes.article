@@ -2,7 +2,7 @@ Tipe lanjut: struct, slice, dan map.
 Belajar cara mendefinisikan tipe: pelajaran ini membahas struct, array, slice, dan map.
 
 The Go Authors
-http://golang.org
+https://golang.org
 
 * Pointer
 
@@ -132,7 +132,7 @@ Slice yang nil memiliki panjang dan kapasitas 0.
 * Menambahkan elemen ke slice
 
 Sangat umum untuk menambahkan elemen ke slice, sehingga Go menyediakan fungsi `append`.
-[[http://golang.org/pkg/builtin/#append][Dokumentasinya]]
+[[https://golang.org/pkg/builtin/#append][Dokumentasinya]]
 menjelaskan lebih lanjut dari fungsi `append`.
 
 	func append(s []T, vs ...T) []T
@@ -145,7 +145,7 @@ Jika array awal `s` terlalu kecil untuk nilai yang ditambahkan, maka array yang 
 Kembaliannya yaitu slice yang merujuk ke array yang baru dialokasikan.
 
 Untuk belajar lebih lanjut tentang slice, bacalah artikel
-[[http://blog.golang.org/go-slices-usage-and-internals][Slices: usage and internals]].
+[[https://blog.golang.org/go-slices-usage-and-internals][Slices: usage and internals]].
 
 .play moretypes/append.go
 
@@ -238,7 +238,7 @@ Fungsi tersebut mengembalikan sebuah map dari penghitungan setiap "kata" di dala
 Fungsi `wc.Test` menjalankan pengujian terhadap fungsi yang diberikan dan mencetak sukses atau salah.
 
 Anda mungkin menemukan artikel
-[[http://golang.org/pkg/strings/#Fields][strings.Fields]]
+[[https://golang.org/pkg/strings/#Fields][strings.Fields]]
 membantu anda.
 
 .play moretypes/exercise-maps.go

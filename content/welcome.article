@@ -2,12 +2,12 @@ Selamat datang!
 Belajar cara menggunakan tur ini: termasuk cara navigasi pelajaran dan cara menjalankan kode.
 
 Penulis Bahasa Go
-http://golang.org
+https://golang.org
 
 * Halo, 世界
 
 Selamat datang di tur
-[[http://golang.org/][bahasa pemrograman Go]]
+[[https://golang.org/][bahasa pemrograman Go]]
 .
 
 Tur ini dibagi menjadi beberapa modul yang dapat anda akses dengan mengklik pada
@@ -41,7 +41,7 @@ Ubah program tersebut dan jalankan lagi.
 Ingatlah bahwa saat anda mengklik pada tombol
 [[javascript:highlightAndClick("#format")][Format]]
 atau `ctrl-enter`, teks di editor diformat menggunakan alat
-[[http://golang.org/cmd/gofmt/][gofmt]].
+[[https://golang.org/cmd/gofmt/][gofmt]].
 
 Anda bisa mengaktifkan pewarnaan sintaks dengan mengklik pada tombol
 [[javascript:highlightAndClick(".syntax-checkbox"][sintaks]].
@@ -56,22 +56,22 @@ di bawah atau tekan `PageDown`.
 
 Tur ini tersedia dalam beberapa bahasa:
 
-- [[http://go-tour-br.appspot.com/][Brazilian Portuguese — Português do Brasil]]
-- [[http://go-tour-ca.appspot.com/][Catalan — Català]]
-- [[http://go-tour-de.appspot.com/][German — Deutsch]]
-- [[http://go-tour-es.appspot.com/][Spanish — Español]]
-- [[http://go-tour-fr.appspot.com/][French — Français]]
-- [[http://go-tour-id2.appspot.com/][Indonesia — Bahasa Indonesia]]
-- [[http://go-tour-ita.appspot.com/][Italian — Italiano]]
-- [[http://go-tour-he.appspot.com/][Hebrew — עִבְרִית]]
-- [[http://go-tour-jp.appspot.com/][Japanese — 日本語]]
-- [[http://go-tour-kr.appspot.com/][Korean — 한국어]]
-- [[http://go-tour-ro.appspot.com/][Romanian — Română]]
-- [[http://tour.go-zh.org/][Simplified Chinese — 中文（简体）]]
-- [[http://go-tour-zh-tw.appspot.com/][Traditional Chinese — 中文（繁體）]]
-- [[http://go-tour-ua.appspot.com/][Ukrainian — Українська]]
-- [[http://go-tour-uz.appspot.com/][Uzbek — Ўзбекча]]
-- [[http://tur.a.golang.org.tr/][Turkish - Türkçe]]
+- [[https://go-tour-br.appspot.com/][Brazilian Portuguese — Português do Brasil]]
+- [[https://go-tour-ca.appspot.com/][Catalan — Català]]
+- [[https://go-tour-de.appspot.com/][German — Deutsch]]
+- [[https://go-tour-es.appspot.com/][Spanish — Español]]
+- [[https://go-tour-fr.appspot.com/][French — Français]]
+- [[https://go-tour-id2.appspot.com/][Indonesia — Bahasa Indonesia]]
+- [[https://go-tour-ita.appspot.com/][Italian — Italiano]]
+- [[https://go-tour-he.appspot.com/][Hebrew — עִבְרִית]]
+- [[https://go-tour-jp.appspot.com/][Japanese — 日本語]]
+- [[https://go-tour-kr.appspot.com/][Korean — 한국어]]
+- [[https://go-tour-ro.appspot.com/][Romanian — Română]]
+- [[https://tour.go-zh.org/][Simplified Chinese — 中文（简体）]]
+- [[https://go-tour-zh-tw.appspot.com/][Traditional Chinese — 中文（繁體）]]
+- [[https://go-tour-ua.appspot.com/][Ukrainian — Українська]]
+- [[https://go-tour-uz.appspot.com/][Uzbek — Ўзбекча]]
+- [[https://tur.a.golang.org.tr/][Turkish - Türkçe]]
 
 Klik tombol
 [[javascript:highlightAndClick(".next-page")]["selanjutnya"]]
@@ -84,11 +84,11 @@ atau tekan `PageDown` untuk melanjutkan.
 #appengine: Tur yang berdiri sendiri lebih cepat, secara dia menjalankan kode program di komputer anda sendiri.
 #appengine: 
 #appengine: Untuk menjalankan tur secara lokal pertama
-#appengine: [[http://golang.org/doc/install/][pasang Go]]
+#appengine: [[https://golang.org/doc/install/][pasang Go]]
 #appengine: kemudian gunakan perintah
-#appengine: [[http://golang.org/cmd/go/][go get]]
+#appengine: [[https://golang.org/cmd/go/][go get]]
 #appengine: untuk memasang
-#appengine: [[http://golang.org/x/tour/][gotour]]:
+#appengine: [[https://golang.org/x/tour/][gotour]]:
 #appengine: 
 #appengine: 	go get golang.org/x/tour/gotour
 #appengine: 
@@ -100,9 +100,9 @@ atau tekan `PageDown` untuk melanjutkan.
 #appengine: * Go Playground
 #appengine: 
 #appengine: Tur ini dibuat dengan
-#appengine: [[http://play.golang.org/][Go Playground]]
+#appengine: [[https://play.golang.org/][Go Playground]]
 #appengine: , sebuah layanan web yang berjalan di atas server
-#appengine: [[http://golang.org/][golang.org]].
+#appengine: [[https://golang.org/][golang.org]].
 #appengine: 
 #appengine: Layanan tersebut menerima program Go, mengkompilasi, dan menjalankan program di dalam _sandbox_, dan mengembalikan keluaran.
 #appengine: 
@@ -116,7 +116,7 @@ atau tekan `PageDown` untuk melanjutkan.
 #appengine: _Playground_ menggunakan rilis paling stabil dari Go.
 #appengine: 
 #appengine: Baca "
-#appengine: [[http://blog.golang.org/playground][Inside the Go Playground]]
+#appengine: [[https://blog.golang.org/playground][Inside the Go Playground]]
 #appengine: " untuk belajar lebih lanjut.
 #appengine: 
 #appengine: .play welcome/sandbox.go

@@ -2,7 +2,7 @@ Konkurensi
 Go menyediakan konstruksi konkurensi sebagai bagian dari inti bahasanya. Pelajaran kali ini menjelaskan dan memberikan beberapa contoh penggunaannya.
 
 The Go Authors
-http://golang.org
+https://golang.org
 
 * Goroutines
 
@@ -19,7 +19,7 @@ Evaluasi dari nilai `f`, `x`, `y`, dan `z` terjadi di goroutine yang memanggil d
 
 Goroutine berjalan di ruang alamat yang sama, sehingga akses ke _shared_memory_ harus disinkronisasi.
 Paket
-[[http://golang.org/pkg/sync/][`sync`]]
+[[https://golang.org/pkg/sync/][`sync`]]
 menyediakan fungsi primitif untuk sinkronisasi, walaupun anda tidak terlalu membutuhkannya karena ada fungsi primitif lainnya.
 (Lihat slide selanjutnya.)
 
@@ -155,47 +155,47 @@ Ubah fungsi `Crawl` untuk mengambil URL secara paralel tanpa ada duplikasi (meng
 * Kemana selanjutnya ...
 
 #appengine: Anda dapat memulai dengan
-#appengine: [[http://golang.org/doc/install/][memasang Go]] atau mengunduh
-#appengine: [[http://code.google.com/appengine/downloads.html#Google_App_Engine_SDK_for_Go][Go App Engine SDK]].
+#appengine: [[https://golang.org/doc/install/][memasang Go]] atau mengunduh
+#appengine: [[https://code.google.com/appengine/downloads.html#Google_App_Engine_SDK_for_Go][Go App Engine SDK]].
 
 #appengine: Saat anda telah memasang Go,
 Halaman
-[[http://golang.org/doc/][dokumentasi Go]] adalah tempat yang bagus untuk
+[[https://golang.org/doc/][dokumentasi Go]] adalah tempat yang bagus untuk
 #appengine: melanjutkan.
 memulai.
 Dokumentasi berisi referensi, tutorial, video, dan banyak lagi.
 
 Untuk belajar cara mengorganisir dan bekerja dengan kode Go, lihat 
-[[http://www.youtube.com/watch?v=XCsL89YtqCs][siaran berikut]]
+[[https://www.youtube.com/watch?v=XCsL89YtqCs][siaran berikut]]
 atau baca
-[[http://golang.org/doc/code.html][Cara Menulis Kode Go]].
+[[https://golang.org/doc/code.html][Cara Menulis Kode Go]].
 
 Jika anda membutuhkan bantuan dengan pustaka Go, lihat 
-[[http://golang.org/pkg/][referensi paket]].
+[[https://golang.org/pkg/][referensi paket]].
 Untuk bantuan mengenai bahasa itu sendiri, anda mungkin bisa melihat
-[[http://golang.org/ref/spec][Spesifikasi Bahasa]]
+[[https://golang.org/ref/spec][Spesifikasi Bahasa]]
 cukup dapat bisa dibaca.
 
 Untuk mengeksplorasi lebih lanjut tentang model konkurensi dari Go, tontonlah
-[[http://www.youtube.com/watch?v=f6kdp27TYZs][Pola Konkurensi]]
-([[http://talks.golang.org/2012/concurrency.slide][slide]])
+[[https://www.youtube.com/watch?v=f6kdp27TYZs][Pola Konkurensi]]
+([[https://talks.golang.org/2012/concurrency.slide][slide]])
 dan
 [[https://www.youtube.com/watch?v=QDDwwePbDtw][Pola Konkurensi Go Lanjutan]]
-([[http://talks.golang.org/2013/advconc.slide][slides]])
+([[https://talks.golang.org/2013/advconc.slide][slides]])
 dan baca
-[[http://golang.org/doc/codewalk/sharemem/][Berbagi Memory dengan Komunikasi]].
+[[https://golang.org/doc/codewalk/sharemem/][Berbagi Memory dengan Komunikasi]].
 
 Untuk memulai membuat aplikasi web, tontonlah
-[[http://vimeo.com/53221558][A simple programming environment]]
-([[http://talks.golang.org/2012/simple.slide][slides]])
+[[https://vimeo.com/53221558][A simple programming environment]]
+([[https://talks.golang.org/2012/simple.slide][slides]])
 dan baca tutorial
-[[http://golang.org/doc/articles/wiki/][Menulis Aplikasi Web]].
+[[https://golang.org/doc/articles/wiki/][Menulis Aplikasi Web]].
 
 Artikel
-[[http://golang.org/doc/codewalk/functions/][First Class Functions in Go]]
+[[https://golang.org/doc/codewalk/functions/][First Class Functions in Go]]
 memberikan perspektif menarik dari tipe fungsi Go.
 
-[[http://blog.golang.org/][Blognya Go]]
+[[https://blog.golang.org/][Blognya Go]]
 memiliki sejumlah arsip artikel informatif tentang Go.
 
-Kunjungi [[http://golang.org][golang.org]] untuk lebih lanjut.
+Kunjungi [[https://golang.org][golang.org]] untuk lebih lanjut.

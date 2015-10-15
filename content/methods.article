@@ -2,7 +2,7 @@ Method dan Interface
 Pelajaran ini membahas method dan interface, konstruksi yang membuat objek dan perilakunya.
 
 The Go Authors
-http://golang.org
+https://golang.org
 
 * Method
 
@@ -64,7 +64,7 @@ Interface implisit memisahkan implementasi paket dari paket yang mendefinisikan 
 
 Hal ini mendorong ketepatan pendefinisian interface, karena anda tidak perlu mencari setiap implementasi dan menandainya dengan nama interface yang baru.
 
-[[http://golang.org/pkg/io/][Paket io]]
+[[https://golang.org/pkg/io/][Paket io]]
 telah mendefinisikan `Reader` dan `Writer`; anda tidak perlu menambahkannya.
 
 .play methods/interfaces-are-satisfied-implicitly.go
@@ -110,6 +110,7 @@ Fungsi terkadang mengembalikan nilai `error`, dan kode yang memanggilnya harus m
 	i, err := strconv.Atoi("42")
 	if err != nil {
 		fmt.Printf("couldn't convert number: %v\n", err)
+		return
 	}
 	fmt.Println("Converted integer:", i)
 
@@ -148,7 +149,7 @@ Ubah fungsi `Sqrt` mengembalikan nilai `ErrNegativeSqrt` saat diberikan nilai ne
 Paket `io` memiliki spesifikasi interface `io.Reader`, yang merepresentasikan berakhirnya pembacaan sebuah aliran data.
 
 Standar pustaka Go memiliki
-[[http://golang.org/search?q=Read#Global][banyak implementasi]]
+[[https://golang.org/search?q=Read#Global][banyak implementasi]]
 dari interface tersebut, termasuk berkas, koneksi jaringan, kompresi, cipher, dll.
 
 Interface `io.Reader` memiliki method `Read`:
@@ -173,15 +174,15 @@ Implementasikan sebuah tipe `Reader` yang menghilangkan karakter ASCII `'A'` yan
 * Latihan: rot13Reader
 
 Pola umumnya adalah sebuah
-[[http://golang.org/pkg/io/#Reader][io.Reader]]
+[[https://golang.org/pkg/io/#Reader][io.Reader]]
 yang membungkus `io.Reader` lainnya, memodifikasi aliran data dengan cara tertentu.
 
 Sebagai contohnya, fungsi 
-[[http://golang.org/pkg/compress/gzip/#NewReader][gzip.NewReader]]
+[[https://golang.org/pkg/compress/gzip/#NewReader][gzip.NewReader]]
 mengambil `io.Reader` (aliran data terkompres) dan mengembalikan `*gzip.Reader` yang juga mengimplementasikan `io.Reader` (aliran data tak-terkompres).
 
 Implementasikan `rot13Reader` yang mengimplementasikan `io.Reader` dengan membaca dari `io.Reader`, modifikasi aliran data dengan menerapkan penyandian
-[[http://en.wikipedia.org/wiki/ROT13][rot13]]
+[[https://en.wikipedia.org/wiki/ROT13][rot13]]
 terhadap semua karakter alfabet.
 
 Tipe `rot13Reader` telah disediakan untuk anda.
@@ -191,10 +192,10 @@ Buatlah ia menjadi `io.Reader` dengan mengimplementasikan method `Read`.
 
 * Server Web
 
-[[http://golang.org/pkg/net/http/][Paket http]]
+[[https://golang.org/pkg/net/https/][Paket https]]
 menyediakan permintaan HTTP menggunakan nilai apapun yang mengimplementasikan `http.Handler`:
 
-	package http
+	package https
 
 	type Handler interface {
 		ServeHTTP(w ResponseWriter, r *Request)
@@ -203,12 +204,12 @@ menyediakan permintaan HTTP menggunakan nilai apapun yang mengimplementasikan `h
 Pada contoh berikut, tipe `Hello` mengimplementasikan `http.Handler`.
 
 Buka
-[[http://localhost:4000/][http://localhost:4000/]]
+[[https://localhost:4000/][https://localhost:4000/]]
 untuk melihat hasilnya.
 
 #appengine: *Catatan:* Contoh ini tidak akan berjalan lewat antarmuka tur berbasis web.
 #appengine: Untuk mencoba server web anda harus
-#appengine: [[http://golang.org/doc/install/][memasang Go]].
+#appengine: [[https://golang.org/doc/install/][memasang Go]].
 
 .play methods/web-servers.go
 
@@ -232,13 +233,13 @@ Sebagai contohnya, anda bisa meregister handler menggunakan:
 
 #appengine: *Catatan:* Contoh ini tidak akan berjalan lewat antarmuka tur berbasis web.
 #appengine: Untuk mencoba server web anda harus
-#appengine: [[http://golang.org/doc/install/][memasang Go]].
+#appengine: [[https://golang.org/doc/install/][memasang Go]].
 
-.play methods/exercise-http-handlers.go
+.play methods/exercise-https-handlers.go
 
 * Gambar
 
-[[http://golang.org/pkg/image/#Image][Paket image]]
+[[https://golang.org/pkg/image/#Image][Paket image]]
 mendefinisikan interface `Image`:
 
 	package image
@@ -250,16 +251,16 @@ mendefinisikan interface `Image`:
 	}
 
 *Catatan*: Nilai kembalian `Rectangle` dari method `Bounds` sebenarnya adalah deklarasi
-[[http://golang.org/pkg/image/#Rectangle][`image.Rectangle`]]
+[[https://golang.org/pkg/image/#Rectangle][`image.Rectangle`]]
 yang telah ada di dalam paket `image`.
 
 (Lihat
-[[http://golang.org/pkg/image/#Image][dokumentasi untuk paket Image]]
+[[https://golang.org/pkg/image/#Image][dokumentasi untuk paket Image]]
 untuk lebih jelas.)
 
 Tipe `color.Color` dan `color.Model` juga interface, tapi kita akan menggunakan implementasi `color.RGBA` dan `color.RGBAModel`.
 Interface dan tipe tersebut dispesifikasikan oleh 
-[[http://golang.org/pkg/image/color/][paket image/color]].
+[[https://golang.org/pkg/image/color/][paket image/color]].
 
 .play methods/images.go
 
@@ -269,7 +270,7 @@ Ingat generator gambar yang anda buat sebelumnya?
 Mari kita buat satu lagi, tapi kali ini mengembalikan implementasi dari `image.Image` bukan sebuah slice dari data.
 
 Definisikan tipe `Image` anda sendiri, kemudian implementasikan
-[[http://golang.org/pkg/image/#Image][method-method yang dibutuhkan]]
+[[https://golang.org/pkg/image/#Image][method-method yang dibutuhkan]]
 , dan panggil `pic.ShowImage`.
 
 `Bounds` seharusnya mengembalikan `image.Rectangle`, seperti `image.Rect(0,`0,`w,`h)`.

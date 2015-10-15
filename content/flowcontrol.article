@@ -2,7 +2,7 @@ Perintah kontrol alur: for, if, else, switch, dan defer
 Belajar cara mengontrol alur kode dengan kondisional, pengulangan, `switch` dan `defer`.
 
 The Go Authors
-http://golang.org
+https://golang.org
 
 * Pengulangan ("for")
 
@@ -67,7 +67,7 @@ Untuk memulai, ulangi perhitungan 10 kali dan lihat seberapa dekat anda mendapat
 Selanjutnya, ubah kondisi pengulangan untuk berhenti saat nilainya sudah tidak berubah lagi (atau hanya berubah dengan delta yang sangat kecil).
 Lihat apakah iterasinya lebih sedikit atau banyak.
 Seberapa dekat hasil anda dengan nilai
-[[http://golang.org/pkg/math/#Sqrt][math.Sqrt]] ?
+[[https://golang.org/pkg/math/#Sqrt][math.Sqrt]] ?
 
 Petunjuk: untuk mendeklarasikan dan menginisialisasi nilai _floating_point_, gunakan sintaks _floating_point_ atau konversi:
 
@@ -123,7 +123,7 @@ Fungsi yang dipanggil dengan `defer` di- _push_ ke sebuah _stack_.
 Saat fungsi berakhir, panggilan yang tadi ditunda dieksekusi dengan urutan last-in-first-out (yang terakhir masuk menjadi pertama keluar).
 
 Untuk belajar lebih lanjut tentang perintah `defer` bacalah
-[[http://blog.golang.org/defer-panic-and-recover][artikel berikut]].
+[[https://blog.golang.org/defer-panic-and-recover][artikel berikut]].
 
 .play flowcontrol/defer-multi.go
 

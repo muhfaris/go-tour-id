@@ -2,7 +2,7 @@ Paket, variabel, dan fungsi.
 Belajar komponen dasar dari program Go.
 
 Penulis Go
-http://golang.org
+https://golang.org
 
 * Paket
 
@@ -18,7 +18,7 @@ Sebagai contohnya, paket `"math/rand"` terdiri dari berkas-berkas yang dimulai d
 #appengine: *Catatan:* lingkungan di mana program berjalan adalah deterministik, jadi setiap kali anda menjalankan contoh program `rand.Intn` akan selalu mengembalikan angka yang sama.
 #appengine: 
 #appengine: (Untuk mendapatkan angka yang acak, tambahkan pembangkit angka; lihat
-#appengine: [[http://golang.org/pkg/math/rand/#Seed][`rand.Seed`]]
+#appengine: [[https://golang.org/pkg/math/rand/#Seed][`rand.Seed`]]
 #appengine: .)
 
 .play basics/packages.go
@@ -61,7 +61,7 @@ Pada contoh ini, `add` memiliki dua parameter dengan tipe `int`.
 Perhatikan bahwa tipe berada _setelah_ nama variabel.
 
 (Untuk mengetahui kenapa tipe ditulis seperti itu, lihat
-[[http://blog.golang.org/gos-declaration-syntax][artikel Go tentang deklarasi sintaks]].)
+[[https://blog.golang.org/gos-declaration-syntax][artikel Go tentang deklarasi sintaks]].)
 
 .play basics/functions.go
 
