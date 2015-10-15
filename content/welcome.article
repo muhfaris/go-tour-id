@@ -22,18 +22,16 @@ Selama tur ini anda akan menemukan sekumpulan slide dan latihan untuk anda kerja
 
 Anda bisa menavigasinya lewat
 
-- [[javascript:highlight(".prev-page")]["sebelum"]]
-atau `PageUp` untuk kembali ke halaman sebelumnya,
+- [[javascript:highlight(".prev-page")]["sebelum"]] atau `PageUp` untuk kembali ke halaman sebelumnya,
 
-- [[javascript:highlight(".next-page")]["selanjutnya"]]
-atau `PageDown` untuk ke halaman selanjutnya.
+- [[javascript:highlight(".next-page")]["selanjutnya"]] atau `PageDown` untuk ke halaman selanjutnya.
 
 Tur ini interaktif. Klik tombol
 [[javascript:highlightAndClick("#run")][Jalankan]]
 sekarang (atau tekan `shift-enter`) untuk mengkompilasi dan menjalankan program pada
 #appengine: server.
 komputer anda.
-Hasilnya ditampilkan di bawah kode.
+Hasilnya akan ditampilkan di bawah kode.
 
 Contoh program tersebut menampilkan aspek dari Go.
 Program yang ada di tur ditujukan sebagai titik awal bagi eksperimen anda.
@@ -63,7 +61,7 @@ Tur ini tersedia dalam beberapa bahasa:
 - [[http://go-tour-de.appspot.com/][German — Deutsch]]
 - [[http://go-tour-es.appspot.com/][Spanish — Español]]
 - [[http://go-tour-fr.appspot.com/][French — Français]]
-- [[http://go-tour-id.appspot.com/][Indonesia — Bahasa Indonesia]]
+- [[http://go-tour-id2.appspot.com/][Indonesia — Bahasa Indonesia]]
 - [[http://go-tour-ita.appspot.com/][Italian — Italiano]]
 - [[http://go-tour-he.appspot.com/][Hebrew — עִבְרִית]]
 - [[http://go-tour-jp.appspot.com/][Japanese — 日本語]]
@@ -80,27 +78,27 @@ Klik tombol
 atau tekan `PageDown` untuk melanjutkan.
 
 #appengine: * Go luring
-#appengine:
+#appengine: 
 #appengine: Tur ini juga tersedia dalam sebuah program tersendiri yang dapat anda gunakan tanpa akses ke internet.
-#appengine:
+#appengine: 
 #appengine: Tur yang berdiri sendiri lebih cepat, secara dia menjalankan kode program di komputer anda sendiri.
-#appengine:
+#appengine: 
 #appengine: Untuk menjalankan tur secara lokal pertama
 #appengine: [[http://golang.org/doc/install/][pasang Go]]
 #appengine: kemudian gunakan perintah
 #appengine: [[http://golang.org/cmd/go/][go get]]
 #appengine: untuk memasang
 #appengine: [[http://golang.org/x/tour/][gotour]]:
-#appengine:
-#appengine:	go get golang.org/x/tour/gotour
-#appengine:
-#appengine: dan jalankan `gotour`.
-#appengine:
-#appengine:	cd $GOPATH/bin
-#appengine:	./gotour
+#appengine: 
+#appengine: 	go get golang.org/x/tour/gotour
+#appengine: 
+#appengine: dan jalankan `gotour`
+#appengine: 
+#appengine: 	cd $GOPATH/bin
+#appengine: 	./gotour
 
 #appengine: * Go Playground
-#appengine:
+#appengine: 
 #appengine: Tur ini dibuat dengan
 #appengine: [[http://play.golang.org/][Go Playground]]
 #appengine: , sebuah layanan web yang berjalan di atas server

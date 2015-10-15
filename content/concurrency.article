@@ -159,8 +159,8 @@ Ubah fungsi `Crawl` untuk mengambil URL secara paralel tanpa ada duplikasi (meng
 #appengine: [[http://code.google.com/appengine/downloads.html#Google_App_Engine_SDK_for_Go][Go App Engine SDK]].
 
 #appengine: Saat anda telah memasang Go,
-[[http://golang.org/doc/][Dokumentasi Go]]
-adalah tempat yang bagus untuk
+Halaman
+[[http://golang.org/doc/][dokumentasi Go]] adalah tempat yang bagus untuk
 #appengine: melanjutkan.
 memulai.
 Dokumentasi berisi referensi, tutorial, video, dan banyak lagi.
