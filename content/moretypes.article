@@ -84,6 +84,12 @@ Sebuah _slice_ mengacu pada sebuah nilai array dan juga mengikutkan panjangnya.
 
 .play moretypes/slices.go
 
+* Slices berisi Slices
+
+_Slices_ bisa mengandung tipe apapun, termasuk _slices_ juga.
+
+.play moretypes/slices-of-slice.go
+
 * Memotong "slice"
 
 Slice bisa dipotong lagi, menghasilkan nilai potongan baru yang mengacu ke array yang sama.

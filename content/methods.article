@@ -204,7 +204,7 @@ menyediakan permintaan HTTP menggunakan nilai apapun yang mengimplementasikan `h
 Pada contoh berikut, tipe `Hello` mengimplementasikan `http.Handler`.
 
 Buka
-[[https://localhost:4000/][https://localhost:4000/]]
+[[http://localhost:4000/][http://localhost:4000/]]
 untuk melihat hasilnya.
 
 #appengine: *Catatan:* Contoh ini tidak akan berjalan lewat antarmuka tur berbasis web.
@@ -215,7 +215,7 @@ untuk melihat hasilnya.
 
 * Latihan: HTTP Handlers
 
-Implementasikan tipe berikut dan definisikan method `ServeHTTP`.
+Implementasikan tipe berikut dan definisikan fungsi `ServeHTTP`.
 Registrasikan mereka supaya dapat menangani _path_ tertentu di dalam server web anda.
 
 	type String string
@@ -226,10 +226,17 @@ Registrasikan mereka supaya dapat menangani _path_ tertentu di dalam server web 
 		Who      string
 	}
 
-Sebagai contohnya, anda bisa meregister handler menggunakan:
+Sebagai contohnya, anda bisa meregister _handler_ menggunakan:
 
 	http.Handle("/string", String("I'm a frayed knot."))
 	http.Handle("/struct", &Struct{"Hello", ":", "Gophers!"})
+
+Setelah menjalankan server anda sendiri, anda dapat mengunjungi
+[[http://localhost:4000/strings][http://localhost:4000/string]] dan
+[[http://localhost:4000/strings][http://localhost:4000/struct]].
+
+Untuk rincian lebih lanjut tentang fungsi `http.Handle`, lihat
+[[https://golang.org/pkg/net/http/#Handle][dokumentasinya]].
 
 #appengine: *Catatan:* Contoh ini tidak akan berjalan lewat antarmuka tur berbasis web.
 #appengine: Untuk mencoba server web anda harus
