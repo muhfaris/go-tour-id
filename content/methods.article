@@ -235,7 +235,7 @@ Sebagai contohnya, anda bisa meregister handler menggunakan:
 #appengine: Untuk mencoba server web anda harus
 #appengine: [[https://golang.org/doc/install/][memasang Go]].
 
-.play methods/exercise-https-handlers.go
+.play methods/exercise-http-handlers.go
 
 * Gambar
 
