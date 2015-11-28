@@ -232,8 +232,8 @@ Sebagai contohnya, anda bisa meregister _handler_ menggunakan:
 	http.Handle("/struct", &Struct{"Hello", ":", "Gophers!"})
 
 Setelah menjalankan server anda sendiri, anda dapat mengunjungi
-[[http://localhost:4000/strings][http://localhost:4000/string]] dan
-[[http://localhost:4000/strings][http://localhost:4000/struct]].
+[[http://localhost:4000/string][http://localhost:4000/string]] dan
+[[http://localhost:4000/string][http://localhost:4000/struct]].
 
 Untuk rincian lebih lanjut tentang fungsi `http.Handle`, lihat
 [[https://golang.org/pkg/net/http/#Handle][dokumentasinya]].
