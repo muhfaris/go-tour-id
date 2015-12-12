@@ -144,11 +144,42 @@ Ia harusnya mengeluarkan angka 1, 2, 3, ..., 10.
 
 .play concurrency/exercise-equivalent-binary-trees.go
 
+* sync.Mutex
+
+Kita telah melihat bagaimana `channel` sangat bagus untuk komunikasi antara
+beberapa `goroutine`.
+
+Namun bagaimana jika kita tidak ingin komunikasi?
+Bagaimana jika kita hanya ingin memastikan hanya satu `goroutine` yang dapat
+mengakses suatu variabel pada satu waktu untuk menghindari konflik?
+
+Konsep ini disebut juga dengan _mutual_exclusion_, dan nama umum untuk struktur
+data yang menyediakan fungsi tersebut adalah _mutex_.
+
+Pustaka standar Go menyediakan _mutual_exclusion_ dengan
+[[https://golang.org/pkg/sync/#Mutex][`sync.Mutex`]]
+dan dua fungsinya:
+
+- `Lock`
+- `Unlock`
+
+Kita bisa mendefinisikan sebuah blok kode untuk dieksekusi secara
+_mutual_exclusion_ dengan mengungkungnya dengan pemanggilan fungsi `Lock` dan
+`Unlock` seperti yang terlihat pada fungsi `Inc`.
+
+Kita juga bisa menggunakan `defer` untuk memastikan mutex akan dibuka kembali
+seperti pada fungsi `Value`.
+
+.play concurrency/mutex-counter.go
+
 * Latihan: Web Crawler
 
 Dalam latihan ini anda akan menggunakan fitur konkurensi Go untuk mem-paralelkan sebuah _web_crawler_.
 
 Ubah fungsi `Crawl` untuk mengambil URL secara paralel tanpa ada duplikasi (mengambil URL yang sama dua kali).
+
+_Petunjuk_: anda bisa menyimpan _cache_ dari URL yang telah diambil menggunakan
+sebuah `map`, tapi `map` tidak aman untuk digunakan secara konkuren!
 
 .play concurrency/exercise-web-crawler.go
 

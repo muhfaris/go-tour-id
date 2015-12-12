@@ -180,7 +180,7 @@ Atau, sederhananya:
 	u := uint(f)
 
 Tidak seperti C, perintah pengisian nilai pada Go antara item dengan tipe berbeda membutuhkan konversi eksplisit.
-Coba hilangkan konversi `float64` atau `int` pada contoh sebelah dan lihat apa yang terjadi.
+Coba hilangkan konversi `float64` atau `uint` pada contoh sebelah dan lihat apa yang terjadi.
 
 .play basics/type-conversions.go
 
