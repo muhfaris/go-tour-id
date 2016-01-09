@@ -7,40 +7,140 @@ https://golang.org
 * Method
 
 Go tidak memiliki class.
-Namun, anda bisa mendefinisikan method pada tipe `struct`.
+Namun, anda bisa mendefinisikan method pada tipe.
 
-Untuk membuat fungsi untuk `struct`, tambahkan _method_receiver_ (instan dari `struct` atau tipe lain) di antara kata `func` dan nama method.
+Sebuah method adalah fungsi dengan sebuah argumen khusus: _receiver_.
+
+Receiver berada antara kata `func` dan nama method.
+
+Pada contoh berikut method `Abs` memiliki _receiver_ bertipe `Vertex` dengan
+nama `v`.
 
 .play methods/methods.go
 
+* Method adalah fungsi
+
+Ingat: sebuah method hanyalah fungsi dengan sebuah argumen _receiver_.
+
+Pada contoh berikut `Abs` dibuat sebagai fungsi biasa tanpa ada perubahan
+fungsionalitas.
+
+.play methods/methods-funcs.go
+
 * Method lanjutan
 
-Anda bisa mendeklarasikan method pada _setiap_ tipe yang dideklarasikan pada paket anda, tidak hanya pada tipe struct saja.
+Anda bisa mendeklarasikan method pada type yang bukan _struct_ juga.
 
-Namun, anda tidak bisa mendefinisikan sebuah method pada tipe dari paket lain (termasuk tipe buatan).
+Pada contoh berikut dapat dilihat sebuah tipe numerik `MyFloat` dengan method
+`Abs`.
+
+Anda hanya bisa mendeklarasikan sebuah method dengan _receiver_ yang tipenya
+telah terdefinisi di _package_ yang sama dengan method-nya.
+Anda tidak bisa mendeklarasikan sebuah method dengan _receiver_ yang tipenya
+didefinisikan di _package_ yang lain (termasuk tipe _built-in_ seperti `int`).
 
 .play methods/methods-continued.go
 
-* Method dengan pointer-receiver
+* Pointer-receiver
 
-Method dapat diasosiasikan dengan tipe bernama atau sebuah pointer terhadap tipe bernama.
+Anda bisa membuat method dengan _pointer_ ke receiver.
 
-Telah kita lihat dua method `Abs`.
-Satu pada tipe pointer `*Vertex` dan yang lainnya pada tipe `MyFloat`.
+Ini berarti tipe _receiver_ memiliki sintaks `*T` untuk tipe `T`.
 
-Ada dua alasan kenapa menggunakan pointer-receiver.
-Pertama, menghindari penyalinan disetiap pemanggilan fungsi (lebih efisien bila tipenya berupa struct yang besar).
-Kedua, supaya method dapat mengubah nilai yang dirujuk.
+Sebagai contohnya, method `Scale` berikut didefinisikan untuk tipe `*Vertex`.
 
-Coba ubah deklarasi dari method `Abs` dan `Scale` menggunakan `Vertex` sebagai receiver, bukan `*Vertex`.
+Method dengan _pointer-receiver_ dapat mengubah nilai yang ditunjuk (seperti
+yang dilakukan oleh `Scale`).
+Karena method terkadang perlu mengubah _receiver_ nya, _pointer-receiver_ lebih
+umum digunakan daripada _receiver_ dengan value.
 
-Method `Scale` tidak berpengaruh bila `v` adalah `Vertex`.
-`Scale` mengubah `v`.
-Saat `v` berupa tipe nilai (bukan pointer), method tersebut mendapat salinan dari `Vertex` dan tidak mengubah nilai aslinya.
+Coba hapus `*` dari deklarasi fungsi `Scale` pada baris 16 dan perhatikan
+bagaimana perilaku program berubah.
 
-`Abs` bekerja dengan cara sebaliknya.
-Ia hanya membaca `v`.
-Tidak masalah apakah ia membaca nilai aslinya (lewat pointer) atau nilai salinannya.
+Dengan value-receiver, method `Scale` beroperasi terhadap salinan dari nilai
+asli `Vertex`.
+(Perilaku ini sama dengan argumen pada fungsi.)
+Method `Scale` harus memiliki _pointer-receiver_ untuk mengubah nilai `Vertex`
+yang dideklarasikan di fungsi `main`.
+
+.play methods/methods-pointers.go
+
+* Pointer dan fungsi
+
+Di sini kita lihat method `Abs` dan `Scale` dibuat ulang sebagai fungsi.
+
+Sekali lagi, coba hilangkan `*` pada baris 16.
+Bisakah anda melihat perubahan perilakunya?
+Apa yang harus anda ubah selanjutnya supaya contoh tersebut dapat di _compile_?
+
+(Jika anda tidak yakin, lanjutnya ke tahap berikutnya.)
+
+.play methods/methods-pointers-explained.go
+
+* Method dan pointer tidak langsung
+
+Bandingkan dua program sebelumnya, anda mungkin memperhatikan bahwa fungsi
+dengan sebuah argumen _pointer_ harus menerima sebuah _pointer_:
+
+	var V Vertex
+	ScaleFunc(v)  // Compile error!
+	ScaleFunc(&v) // OK
+
+Sementara method dengan _pointer-receiver_ dapat menerima sebuah nilai atau
+sebuah _pointer_ sebagai _receiver_ saat dipanggil:
+
+	var v Vertex
+	v.Scale(5)   // OK
+	p := &v
+	p.Scale(10)  // OK
+
+Untuk perintah `v.Scale(5)`, walaupun `v` adalah sebuah nilai bukan sebuah
+_pointer_, method dengan _pointer-receiver_ akan dipanggil secara otomatis.
+Maka, untuk mempermudah, Go menginterpretasikan perintah `v.Scale(5)` sebagai
+`(&v).Scale(5)` karena method `Scale` memiliki _pointer-receiver_.
+
+.play methods/indirection.go
+
+* Method dan pointer tidak langsung (2)
+
+Hal yang sama berlaku sebaliknya.
+
+Fungsi yang menerima argumen nilai harus mendapatkan sebuah nilai dari tipe
+yang spesifik:
+
+	var v Vertex
+	fmt.Println(AbsFunc(v))  // OK
+	fmt.Println(AbsFunc(&v)) // Compile error!
+
+Sementara method dengan value-receiver bisa menerima sebuah nilai atau sebuah
+_pointer_ sebagai _receiver_ saat dipanggil:
+
+	var v Vertex
+	fmt.Println(v.Abs()) // OK
+	p := &v
+	fmt.Println(p.Abs()) // OK
+
+Pada kasus ini, pemanggilan method `p.Abs()` diinterpretasikan sebagai
+`(*p).Abs()`.
+
+.play methods/indirection-values.go
+
+* Memilih receiver nilai atau pointer
+
+Ada dua alasan kenapa menggunakan _pointer-receiver_.
+
+Pertama adalah supaya method dapat mengubah nilai yang ditunjuk oleh receiver.
+
+Kedua adalah untuk menghindari menyalin nilai setiap kali method dipanggil.
+Hal ini bisa lebih efisien jika _receiver_ adalah sebuah _struct_ yang besar,
+misalnya.
+
+Pada contoh ini, `Scale` dan `Abs` memiliki tipe receiver `*Vertex`, walaupun
+method `Abs` tidak perlu mengubah receiver-nya.
+
+Secara umum, semua method dari sebuah tipe harus memiliki receiver sebagai
+nilai atau sebagai _pointer_, tapi tidak gabungan dari keduanya.
+(Kita akan lihat alasannya pada beberapa laman berikutnya.)
 
 .play methods/methods-with-pointer-receivers.go
 
@@ -51,7 +151,7 @@ Sebuah tipe interface didefinisikan oleh sekumpulan method.
 Nilai dari tipe interface dapat menyimpan nilai apapun yang mengimplementasikan method tersebut.
 
 *Catatan:* Terdapat kesalahan di contoh kode pada baris 22.
-`Vertex` (tipe nilai) tidak memenuhi `Abser` karena method `Abs` hanya didefinisikan pada `*Vertex` (tipe pointer).
+`Vertex` (tipe nilai) tidak memenuhi `Abser` karena method `Abs` hanya didefinisikan pada `*Vertex` (tipe _pointer_).
 
 .play methods/interfaces.go
 
