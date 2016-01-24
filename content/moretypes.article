@@ -274,7 +274,10 @@ Setiap closure terikat dengan variabel `sum` -nya sendiri.
 
 Mari bermain dengan fungsi.
 
-Implementasikan sebuah fungsi `fibonacci` yang mengembalikan sebuah fungsi (closure) yang mengembalikan bilangan fibonacci.
+Implementasikan sebuah fungsi `fibonacci` yang mengembalikan sebuah fungsi
+(closure) yang mengembalikan
+[[https://id.wikipedia.org/wiki/Bilangan_Fibonacci][bilangan fibonacci]]
+(0, 1, 1, 2, 3, 5, ...).
 
 .play moretypes/exercise-fibonacci-closure.go
 

@@ -146,28 +146,146 @@ nilai atau sebagai _pointer_, tapi tidak gabungan dari keduanya.
 
 * Interface
 
-Sebuah tipe interface didefinisikan oleh sekumpulan method.
+Sebuah tipe _interface_ didefinisikan sebagai sekumpulan method penanda, yaitu
+method yang hanya ada namanya tanpa ada isinya.
 
 Nilai dari tipe interface dapat menyimpan nilai apapun yang mengimplementasikan method tersebut.
 
 *Catatan:* Terdapat kesalahan di contoh kode pada baris 22.
-`Vertex` (tipe nilai) tidak memenuhi `Abser` karena method `Abs` hanya didefinisikan pada `*Vertex` (tipe _pointer_).
+`Vertex` (tipe nilai) tidak mengimplementasikan `Abser` karena method `Abs`
+hanya didefinisikan pada `*Vertex` (tipe _pointer_).
 
 .play methods/interfaces.go
 
 * Interface dipenuhi secara implisit
 
-Sebuah tipe mengimplementasikan sebuah interface dengan mengimplementasikan method-methodnya.
-Tidak ada deklarasi eksplisit; tidak ada perintah "implements".
+Sebuah tipe mengimplementasikan sebuah interface dengan mengimplementasikan
+semua method-nya.
+Tidak ada deklarasi eksplisit, tidak ada perintah "implements".
 
-Interface implisit memisahkan implementasi paket dari paket yang mendefinisikan interface tersebut: keduanya tidak memiliki kebergantungan.
+Interface implisit memisahkan definisi dari sebuah interface dari
+implementasinya, yang kemudian dapat digunakan dipaket manapun tanpa ada
+pengaturan.
 
-Hal ini mendorong ketepatan pendefinisian interface, karena anda tidak perlu mencari setiap implementasi dan menandainya dengan nama interface yang baru.
-
-[[https://golang.org/pkg/io/][Paket io]]
-telah mendefinisikan `Reader` dan `Writer`; anda tidak perlu menambahkannya.
+Pada baris ke 15, sebuah tipe T berarti mengimplementasikan interface I dengan
+mendefinisikan isi dari method M, tanpa ada deklarasi secara eksplisit.
 
 .play methods/interfaces-are-satisfied-implicitly.go
+
+* Isi interface
+
+Di balik layar, isi interface dapat dibayangkan sebagai sebuah pasangan nilai
+dan sebuah tipe:
+
+	(nilai, tipe)
+
+Sebuah interface mengandung sebuah nilai dari tipe tertentu.
+
+Memanggil suatu method terhadap suatu interface akan mengeksekusi method
+dengan nama yang sama pada tipe yang dipegangnya.
+
+.play methods/interface-values.go
+
+* Interface dengan nilai nil
+
+Jika nilai sebenarnya dari interface itu sendiri adalah nil, method akan
+dipanggil dengan receiver bernilai nil.
+
+Pada beberapa bahasa pemrograman hal ini akan mengakibatkan
+`null`pointer`exception` atau kesalahan karena pointer bernilai kosong, tapi
+pada Go sangat umum menulis method dengan receiver bernilai nil (seperti method
+`M` pada contoh di sebelah.)
+
+Ingatlah bahwa sebuah isi interface yang mengandung nilai konkrit nil
+sebenarnya adalah non-nil.
+
+.play methods/interface-values-with-nil.go
+
+* Isi interface dengan nil
+
+Sebuah isi interface yang nil tidak mengandung nilai dan tipe konkrit.
+
+Memanggil sebuah method pada sebuah interface yang nil akan mengakibatkan
+kesalahan `run-time` karena tidak ada tipe di dalam interface yang
+mengindikasikan method _konkrit_ yang akan dipanggil.
+
+.play methods/nil-interface-values.go
+
+* Interface kosong
+
+Tipe interface yang tidak memiliki method dikenal juga dengan
+_interface_kosong_:
+
+	interface{}
+
+Sebuah interface kosong bisa menyimpan nilai dari tipe apapun.
+(Setiap tipe mengimplementasikan paling tidak nol method.)
+
+Interface kosong digunakan pada kode yang menangani nilai yang tidak diketahui.
+Sebagai contohnya, `fmt.Print` mengambil sejumlah argumen dengan tipe
+`interface{}`.
+
+.play methods/empty-interface.go
+
+* Penegasan tipe
+
+Suatu _penegasan_tipe_ menyediakan akses ke isi interface di balik nilai
+konkritnya.
+
+	t := i.(T)
+
+Perintah di atas menegaskan bahwa isi interface `i` menyimpan tipe konkrit `T`
+dan memberikan nilai `T` ke variabel `t`.
+
+Jika `i` tidak mengandung tipe `T`, perintah tersebut akan memicu `panic`.
+(`panic` adalah istilah dalam Go yang menyebabkan proses berhenti dan
+mengeluarkan baris perintah yang menyebabkan `panic` tersebut.)
+
+Untuk _memeriksa_ apakah sebuah isi interface benar mengandung tipe tertentu,
+penegasan tipe bisa mengembalikan dua nilai: nilai yang dikandung dan sebuah
+nilai boolean yang memberitahu apakah penegasan sukses atau tidak.
+
+	t, ok := i.(T)
+
+Jika `i` mengandung `T`, maka `t` akan menyimpan nilai dan `ok` akan bernilai
+`true`.
+
+Jika tidak, `ok` akan bernilai `false` dan `t` akan bernilai kosong sesuai
+dengan tipe `T`, dan `panic` tidak akan terjadi.
+
+Ingatlah kesamaan antara sintaks ini dengan membaca dari sebuah `map`.
+
+.play methods/type-assertions.go
+
+* Penggunaan switch untuk tipe
+
+Sebuah _tipe_switch_ adalah bentukan yang membolehkan beberapa penegasan tipe
+secara serial.
+
+Tipe switch sama seperti perintah `switch` biasa, tapi dengan nilai `case`
+mengacu pada tipe (bukan nilai), dan nilai `case` tersebut dibandingkan dengan
+tipe yang dikandung oleh isi interface yang diberikan.
+
+	switch v := i.(type) {
+	case T:
+		// here v has type T
+	case S:
+		// here v has type S
+	default:
+		// no match; here v has the same type as i
+	}
+
+Deklarasi dalam sebuah tipe switch memiliki sintaks yang sama dengan penegasan
+tipe `i.(T)`, tapi dengan `T` diganti dengan kata `type`.
+
+Perintah switch berikut menguji apakah isi interface `i` mengandung sebuah
+nilai dari tipe `T` atau `S`.
+Pada setiap `case` dari `T` dan `S`, variabel `v` akan memiliki tipe `T` atau
+`S` dan memiliki nilai yang dikandung oleh `i`.
+Pada `default case` (yang mana tidak ada tipe yang sama ditemukan), variabel
+`v` akan memiliki tipe dan nilai yang sama dengan `i`.
+
+.play methods/type-switches.go
 
 * Stringer
 
@@ -289,60 +407,6 @@ Tipe `rot13Reader` telah disediakan untuk anda.
 Buatlah ia menjadi `io.Reader` dengan mengimplementasikan method `Read`.
 
 .play methods/exercise-rot-reader.go
-
-* Server Web
-
-[[https://golang.org/pkg/net/https/][Paket https]]
-menyediakan permintaan HTTP menggunakan nilai apapun yang mengimplementasikan `http.Handler`:
-
-	package https
-
-	type Handler interface {
-		ServeHTTP(w ResponseWriter, r *Request)
-	}
-
-Pada contoh berikut, tipe `Hello` mengimplementasikan `http.Handler`.
-
-Buka
-[[http://localhost:4000/][http://localhost:4000/]]
-untuk melihat hasilnya.
-
-#appengine: *Catatan:* Contoh ini tidak akan berjalan lewat antarmuka tur berbasis web.
-#appengine: Untuk mencoba server web anda harus
-#appengine: [[https://golang.org/doc/install/][memasang Go]].
-
-.play methods/web-servers.go
-
-* Latihan: HTTP Handlers
-
-Implementasikan tipe berikut dan definisikan fungsi `ServeHTTP`.
-Registrasikan mereka supaya dapat menangani _path_ tertentu di dalam server web anda.
-
-	type String string
-
-	type Struct struct {
-		Greeting string
-		Punct    string
-		Who      string
-	}
-
-Sebagai contohnya, anda bisa meregister _handler_ menggunakan:
-
-	http.Handle("/string", String("I'm a frayed knot."))
-	http.Handle("/struct", &Struct{"Hello", ":", "Gophers!"})
-
-Setelah menjalankan server anda sendiri, anda dapat mengunjungi
-[[http://localhost:4000/string][http://localhost:4000/string]] dan
-[[http://localhost:4000/string][http://localhost:4000/struct]].
-
-Untuk rincian lebih lanjut tentang fungsi `http.Handle`, lihat
-[[https://golang.org/pkg/net/http/#Handle][dokumentasinya]].
-
-#appengine: *Catatan:* Contoh ini tidak akan berjalan lewat antarmuka tur berbasis web.
-#appengine: Untuk mencoba server web anda harus
-#appengine: [[https://golang.org/doc/install/][memasang Go]].
-
-.play methods/exercise-http-handlers.go
 
 * Gambar
 

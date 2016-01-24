@@ -55,22 +55,22 @@ di bawah atau tekan `PageDown`.
 
 Tur ini tersedia dalam beberapa bahasa:
 
-- [[https://go-tour-br.appspot.com/][Brazilian Portuguese — Português do Brasil]]
-- [[https://go-tour-ca.appspot.com/][Catalan — Català]]
-- [[https://go-tour-de.appspot.com/][German — Deutsch]]
-- [[https://go-tour-es.appspot.com/][Spanish — Español]]
-- [[https://go-tour-fr.appspot.com/][French — Français]]
-- [[https://go-tour-id2.appspot.com/][Indonesia — Bahasa Indonesia]]
-- [[https://go-tour-ita.appspot.com/][Italian — Italiano]]
-- [[https://go-tour-he.appspot.com/][Hebrew — עִבְרִית]]
-- [[https://go-tour-jp.appspot.com/][Japanese — 日本語]]
-- [[https://go-tour-kr.appspot.com/][Korean — 한국어]]
-- [[https://go-tour-ro.appspot.com/][Romanian — Română]]
-- [[https://tour.go-zh.org/][Simplified Chinese — 中文（简体）]]
-- [[https://go-tour-zh-tw.appspot.com/][Traditional Chinese — 中文（繁體）]]
-- [[https://go-tour-ua.appspot.com/][Ukrainian — Українська]]
-- [[https://go-tour-uz.appspot.com/][Uzbek — Ўзбекча]]
-- [[https://tur.a.golang.org.tr/][Turkish - Türkçe]]
+- [[https://go-tour-br.appspot.com/][Portugis — Português do Brasil]]
+- [[https://go-tour-ca.appspot.com/][Katalan — Català]]
+- [[https://go-tour-de.appspot.com/][Jerman — Deutsch]]
+- [[https://go-tour-es.appspot.com/][Spanyol — Español]]
+- [[https://go-tour-fr.appspot.com/][Prancis — Français]]
+- [[https://tour.golang.org/][Inggris - English]]
+- [[https://go-tour-ita.appspot.com/][Itali — Italiano]]
+- [[https://go-tour-he.appspot.com/][Ibrani — עִבְרִית]]
+- [[https://go-tour-jp.appspot.com/][Jepang — 日本語]]
+- [[https://go-tour-kr.appspot.com/][Korea — 한국어]]
+- [[https://go-tour-ro.appspot.com/][Romania — Română]]
+- [[https://tour.go-zh.org/][Cina — 中文（简体）]]
+- [[https://go-tour-zh-tw.appspot.com/][Cina Tradisional — 中文（繁體）]]
+- [[https://go-tour-ua.appspot.com/][Ukrainia — Українська]]
+- [[https://go-tour-uz.appspot.com/][Uzbekistan — Ўзбекча]]
+- [[https://tur.a.golang.org.tr/][Turki - Türkçe]]
 
 Klik tombol
 [[javascript:highlightAndClick(".next-page")]["selanjutnya"]]
@@ -82,19 +82,16 @@ atau tekan `PageDown` untuk melanjutkan.
 #appengine: 
 #appengine: Tur yang berdiri sendiri lebih cepat, secara dia menjalankan kode program di komputer anda sendiri.
 #appengine: 
-#appengine: Untuk menjalankan tur secara lokal pertama
-#appengine: [[https://golang.org/doc/install/][pasang Go]]
-#appengine: kemudian gunakan perintah
-#appengine: [[https://golang.org/cmd/go/][go get]]
-#appengine: untuk memasang
-#appengine: [[https://golang.org/x/tour/][gotour]]:
+#appengine: Untuk menjalankan tur secara lokal, pertama
+#appengine: [[https://golang.org/dl/][unduh dan pasang Go]]
+#appengine: kemudian jalankan tur dengan cara:
 #appengine: 
 #appengine: 	go get golang.org/x/tour/gotour
+#appengine: 	go tour
 #appengine: 
-#appengine: dan jalankan `gotour`
-#appengine: 
-#appengine: 	cd $GOPATH/bin
-#appengine: 	./gotour
+#appengine: Program tur akan membuka peramban menampilkan versi lokal dari tur
+#appengine: anda.
+#appengine: Atau, anda bisa tetap melanjutkan tur lewat situs ini.
 
 #appengine: * Go Playground
 #appengine: 
