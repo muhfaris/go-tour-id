@@ -42,8 +42,8 @@ Pada Go, sebuah nama diekspor jika ia diawali dengan huruf besar.
 Saat mengimport sebuah paket, anda hanya bisa mengacu pada nama yang dieksport.
 Setiap nama yang tidak di-eksport tidak akan bisa diakses dari luar paket.
 
-`Foo` adalah sebuah nama yang diekspor, sebagaimana juga `FOO`.
-Nama `foo` tidak diekspor.
+`Pi` adalah sebuah nama yang diekspor, sebagaimana juga `PI`.
+Nama `pi` tidak diekspor.
 
 Jalankan kodenya. Perhatikan nanti akan ada pesan kesalahan.
 

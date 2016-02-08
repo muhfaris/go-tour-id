@@ -39,7 +39,7 @@ Ubah program tersebut dan jalankan lagi.
 
 Ingatlah bahwa saat anda mengklik pada tombol
 [[javascript:highlightAndClick("#format")][Format]]
-atau `ctrl-enter`, teks di editor diformat menggunakan alat
+atau `ctrl-enter`, teks di editor diformat menggunakan
 [[https://golang.org/cmd/gofmt/][gofmt]].
 
 Anda bisa mengaktifkan pewarnaan sintaks dengan mengklik pada tombol
