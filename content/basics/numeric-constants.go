@@ -5,8 +5,12 @@ package main
 import "fmt"
 
 const (
-	Big   = 1 << 100  // == 1267650600228229401496703205376
-	Small = Big >> 99 // == 2
+	// Buat bilangan yang besar dengan men-shift 1 bit ke kiri 100 kali.
+	// Dengan kata lain, bilangan binari 1 diikuti dengan 100 angka nol.
+	Big = 1 << 100
+	// Shift kembali ke kanan sebanyak 99 kali, sehingga akhirnya menjadi
+	// 1<<1, atau 2
+	Small = Big >> 99
 )
 
 func needInt(x int) int { return x*10 + 1 }

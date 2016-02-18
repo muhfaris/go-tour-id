@@ -9,9 +9,9 @@ func main() {
 	fmt.Println("s ==", s)
 	fmt.Println("s[1:4] ==", s[1:4])
 
-	// missing low index implies 0
+	// tanpa ada index kiri berarti 0
 	fmt.Println("s[:3] ==", s[:3])
 
-	// missing high index implies len(s)
+	// tanpa ada index di sisi kanan berarti len(s)
 	fmt.Println("s[4:] ==", s[4:])
 }

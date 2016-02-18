@@ -80,7 +80,7 @@ Sebuah _slice_ mengacu pada sebuah nilai array dan juga mengikutkan panjangnya.
 
 `[]T` adalah sebuah slice dengan elemen bertipe `T`.
 
-`len(s)` mengembalikan panjang dari slice `s`.
+`len(primes)` mengembalikan panjang dari slice `primes`.
 
 .play moretypes/slices.go
 
