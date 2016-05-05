@@ -63,6 +63,7 @@ Prefik `&` mengembalikan sebuah pointer ke `struct`.
 
 .play moretypes/struct-literals.go
 
+
 * Array
 
 Deklarasi tipe dengan `[n]T` adalah untuk array dengan jumlah `n` dan bertipe `T`.
@@ -79,47 +80,110 @@ Go menyediakan cara yang mudah untuk bekerja dengan array.
 
 .play moretypes/array.go
 
-* Potongan ("slice")
 
-Sebuah _slice_ mengacu pada sebuah nilai array dan juga mengikutkan panjangnya.
+* Slice
 
-`[]T` adalah sebuah slice dengan elemen bertipe `T`.
+Sebuah array memiliki ukuran yang tetap.
+_Slice_ yaitu tipe bentukan untuk array yang bersifat dinamis.
+Pada praktiknya, slice lebih umum digunakan daripada array.
 
-`len(primes)` mengembalikan panjang dari slice `primes`.
+Sebuah tipe `[]T` adalah sebuah slice dengan elemen bertipe `T`.
+
+Ekspresi berikut membuat sebuah slice dari lima elemen pertama dari sebuah
+array `a`:
+
+	a[0:5]
 
 .play moretypes/slices.go
 
-* Slices berisi Slices
 
-_Slices_ bisa mengandung tipe apapun, termasuk _slices_ juga.
+* Slice merupakan referensi ke array
 
-.play moretypes/slices-of-slice.go
+Sebuah slice tidak menyimpan data, ia hanya mendeskripsikan sebuah bagian dari
+array yang dikandungnya.
 
-* Memotong "slice"
+Mengubah elemen dari sebuah slice akan mengubah elemen dari array di dalamnya.
 
-Slice bisa dipotong lagi, menghasilkan nilai potongan baru yang mengacu ke array yang sama.
+Slice lain yang memiliki elemen yang sama juga akan melihat perubahan tersebut.
 
-Ekspresi
+.play moretypes/slices-pointers.go
 
-	s[lo:hi]
 
-mengevaluasi ke potongan dari elemen `lo` sampai `hi-1`, secara inklusif.
-Maka
+* Slice secara literal
 
-	s[lo:lo]
+Sebuah slice secara harfiahnya adalah seperti array tanpa panjang.
 
-adalah kosong dan
+Berikut ini adalah sebuah array:
 
-	s[lo:lo+1]
+	[3]bool{true, false, true}
 
-hanya memiliki satu elemen.
+Dan berikut ini membuat array yang sama seperti di atas, dan membuat sebuah
+slice yang mengacu pada array tersebut:
 
-.play moretypes/slicing-slices.go
+	[]bool{true, false, true}
 
-* Membuat potongan
+.play moretypes/slice-literals.go
 
-Potongan dibuat dengan fungsi `make`.
-Ia bekerja dengan mengalokasikan array kosong dan mengembalikan potongan yang mengacu pada array tersebut:
+
+* Nilai baku Slice
+
+Saat memotong sebuah slice, bila anda mengindahkan batas atas atau bawah, maka
+Go akan menggunakan nilai baku untuk batas tersebut.
+
+Nilai baku untuk batas bawah adalah nol, dan untuk batas atas yaitu panjang
+dari array yang dikandung slice tersebut.
+
+Untuk array
+
+	var a [10]int
+
+ekspresi slice berikut adalah persamaannya:
+
+	a[0:10]
+	a[:10]
+	a[0:]
+	a[:]
+
+.play moretypes/slice-bounds.go
+
+
+* Kapasitas dan panjang slice
+
+Sebuah slice memiliki _panjang_ dan _kapasitas_.
+
+Panjang dari sebuah slice yaitu jumlah dari elemen yang dimiliki.
+
+Kapasitas dari sebuah slice adalah jumlah dari elemen array yang dikandungnya,
+dihitung dari elemen pertama.
+
+Panjang dan kapasitas dari sebuah slice `s` dapat diambil dengan menggunakan
+fungsi `len(s)` dan `cap(s)`.
+
+Anda bisa memperluas panjang dari sebuah slice dengan me-motong-ulang, bila
+kapasitasnya cukup.
+
+Coba ubah salah satu operasi slice di contoh program sebelah untuk
+memperluasnya melebihi kapasitasnya dan lihat apa yang terjadi.
+
+.play moretypes/slice-len-cap.go
+
+
+* Slice kosong
+
+Nilai nol dari slice adalah `nil`.
+
+Slice yang kosong memiliki panjang dan kapasitas 0, dan tidak memiliki array di
+dalamnya.
+
+.play moretypes/nil-slices.go
+
+
+* Membuat slice dengan make
+
+Slice dapat dibuat dengan fungsi `make`.
+
+Fungsi `make` mengalokasikan array kosong dan mengembalikan sebuah slice yang
+mengacu dan mengandung array tersebut.
 
 	a := make([]int, 5)  // len(a)=5
 
@@ -132,15 +196,15 @@ Untuk menentukan kapasitasnya, tambahkan argumen ketiga pada `make`:
 
 .play moretypes/making-slices.go
 
-* Slice yang Nil
 
-Nilai kosong dari sebuah slice adalah `nil`.
+* Slice dari slice
 
-Slice yang nil memiliki panjang dan kapasitas 0.
+Slice bisa memiliki tipe apapun, termasuk slice lainnya.
 
-.play moretypes/nil-slices.go
+.play moretypes/slices-of-slice.go
 
-* Menambahkan elemen ke slice
+
+* Menambahkan ke slice
 
 Sangat umum untuk menambahkan elemen ke slice, sehingga Go menyediakan fungsi `append`.
 [[https://golang.org/pkg/builtin/#append][Dokumentasinya]]
@@ -159,6 +223,7 @@ Untuk belajar lebih lanjut tentang slice, bacalah artikel
 [[https://blog.golang.org/go-slices-usage-and-internals][Slices: usage and internals]].
 
 .play moretypes/append.go
+
 
 * Rentang ("range")
 
@@ -198,8 +263,11 @@ Petunjuk:
 
 Sebuah map memetakan sebuah kunci (_key_) dengan nilainya.
 
-Map harus dibuat dengan `make` sebelum dapat digunakan;
-map yang `nil` adalah kosong dan tidak dapat diisi.
+Nilai kosong dari sebuah map adalah `nil`.
+Sebuah map yang `nil` tidak memiliki kunci, dan tidak bisa ditambahkan.
+
+Fungsi `make` mengembalikan sebuah map dari tipe yang diberikan,
+menginisialisasinya sehingga dapat digunakan.
 
 .play moretypes/maps.go
 
