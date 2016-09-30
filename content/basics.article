@@ -4,27 +4,33 @@ Belajar komponen dasar dari program Go.
 Penulis Go
 https://golang.org
 
-* Paket
+* Paket ("package")
 
 Setiap program Go terbuat dari paket-paket (`package`).
 
 Program mulai berjalan dalam paket `main`.
 
-Program ini menggunakan paket dengan meng- `import` `"fmt"` dan `"math/rand"`.
+Program di sebelah menggunakan paket lain dengan meng- `import` `"fmt"` dan
+`"math/rand"`.
 
 Aturannya, nama paket sama dengan elemen terakhir dari path `import`.
-Sebagai contohnya, paket `"math/rand"` terdiri dari berkas-berkas yang dimulai dengan perintah `package`rand`.
+Sebagai contohnya, paket `"math/rand"` terdiri dari berkas-berkas yang dimulai
+dengan perintah `package`rand`.
 
-#appengine: *Catatan:* lingkungan di mana program berjalan adalah deterministik, jadi setiap kali anda menjalankan contoh program `rand.Intn` akan selalu mengembalikan angka yang sama.
+#appengine: *Catatan:* lingkungan dari program yang berjalan adalah
+#appengine: deterministik, jadi setiap kali anda menjalankan contoh program di
+#appengine: sebelah, `rand.Intn` akan selalu mengembalikan angka yang sama.
 #appengine: 
-#appengine: (Untuk mendapatkan angka yang acak, tambahkan pembangkit angka; lihat
+#appengine: (Untuk mendapatkan angka yang acak, tambahkan pembangkit angka;
+#appengine: lihat fungsi
 #appengine: [[https://golang.org/pkg/math/rand/#Seed][`rand.Seed`]] .)
 
 .play basics/packages.go
 
 * Import
 
-Kode ini mengelompokan `import` di dalam tanda kurung, atau disebut juga perintah `import` yang "difaktorkan".
+Kode ini mengelompokan `import` di dalam tanda kurung, atau disebut juga
+perintah `import` yang "difaktorkan".
 
 Anda juga bisa menulis perintah `import`, seperti:
 
@@ -37,7 +43,7 @@ Tapi lebih disarankan untuk menggunakan perintah `import` yang difaktorkan.
 
 * Nama-nama yang diekspor
 
-Pada Go, sebuah nama diekspor jika ia diawali dengan huruf besar.
+Pada bahasa Go, sebuah nama diekspor jika diawali dengan huruf besar.
 Sebagai contohnya, `Pizza` itu nama yang diekspor, sebagaimana juga `Pi`, yang
 diekspor dari paket `math`.
 
@@ -67,7 +73,8 @@ Perhatikan bahwa tipe berada _setelah_ nama variabel.
 
 * Fungsi lanjutan
 
-Saat dua atau lebih parameter fungsi memiliki tipe yang sama, anda bisa menghilangkan semua tipe kecuali yang terakhir.
+Saat dua atau lebih parameter fungsi memiliki tipe yang sama, anda bisa
+menggabungkannya menjadi satu.
 
 Pada contoh ini, kita singkat
 
@@ -79,7 +86,7 @@ menjadi
 
 .play basics/functions-continued.go
 
-* Banyak Kembalian
+* Banyak kembalian
 
 Sebuah fungsi dapat mengeluarkan banyak kembalian.
 
@@ -90,38 +97,48 @@ Fungsi `swap` mengembalikan dua `string`.
 * Kembalian bernama
 
 Nilai kembalian pada Go bisa diberi nama.
-Caranya yaitu dengan mendefinisikannya di dalam fungsi, sehingga mereka diperlakukan seperti variabel.
+Caranya yaitu dengan mendefinisikannya di dalam fungsi, sehingga mereka
+diperlakukan seperti variabel.
 
-Penamaan tersebut seharusnya digunakan untuk mendokumentasikan makna dari nilai kembalian.
+Penamaan tersebut seharusnya digunakan untuk mendokumentasikan makna dari
+nilai kembalian.
 
-Sebuah perintah `return` tanpa argumen mengembalikan nilai dari kembalian bernama.
+Sebuah perintah `return` tanpa argumen mengembalikan nilai dari kembalian
+bernama.
 Hal ini dikenal dengan kembalian "naked".
 
-Perintah kembalian "naked" sebaiknya hanya digunakan pada fungsi yang singkat, seperti pada contoh di sebelah, karena bisa mengganggu pembacaan kode bila digunakan pada fungsi yang panjang.
+Perintah kembalian "naked" sebaiknya hanya digunakan pada fungsi yang singkat,
+seperti pada contoh di sebelah, karena bisa mengganggu pembacaan kode bila
+digunakan pada fungsi yang panjang.
 
 .play basics/named-results.go
 
 * Variabel
 
-Perintah `var` mendeklarasikan daftar variabel; seperti pada daftar argumen pada fungsi, tipenya berada di akhir.
+Perintah `var` mendeklarasikan daftar variabel; seperti pada daftar argumen
+pada fungsi, tipenya berada di akhir.
 
-Perintah `var` bisa ditulis pada tingkat paket atau fungsi, seperti pada contoh sebelah.
+Perintah `var` bisa ditulis pada tingkat paket atau fungsi, seperti pada
+contoh sebelah.
 
 .play basics/variables.go
 
 * Variabel dengan inisialisasi
 
-Deklarasi sebuah variabel bisa mengikutkan inisialisasi, satu per variabel.
+Deklarasi sebuah variabel bisa mengikutkan inisialisasi.
 
-Jika sebuah inisialisasi ada, maka tipe bisa dihilangkan; variabel akan memiliki tipe dari inisialisasi.
+Jika variabel diinisialisasi, maka tipe dari variabel bisa dihilangkan;
+sehingga variabel akan memiliki tipe sesuai dengan nilai inisialisasi.
 
 .play basics/variables-with-initializers.go
 
 * Deklarasi variabel singkat
 
-Dalam sebuah fungsi, perintah singkat `:=` bisa digunakan menggantikan `var` dengan tipe implisit.
+Dalam sebuah fungsi, perintah singkat `:=` bisa digunakan menggantikan `var`
+dengan tipe implisit.
 
-Di luar sebuah fungsi, setiap perintah harus dimulai dengan kata kunci (`var`, `func`, dst), sehingga `:=` tidak bisa digunakan.
+Di luar sebuah fungsi, setiap perintah harus dimulai dengan kata kunci (`var`,
+`func`, dst), sehingga `:=` tidak bisa digunakan.
 
 .play basics/short-variable-declarations.go
 
@@ -145,10 +162,15 @@ Tipe dasar pada Go yaitu,
 
 	complex64 complex128
 
-Contoh sebelah memperlihatkan variabel dengan beberapa tipe, dan juga deklarasi variabel bisa "difaktorkan" ke dalam blok, seperti pada perintah `import`.
+Contoh sebelah memperlihatkan variabel dengan beberapa tipe, dan juga
+deklarasi variabel bisa "difaktorkan" ke dalam blok, seperti pada perintah
+`import`.
 
-Tipe `int`, `uint`, dan `uintptr` biasanya memiliki panjang 32 bits pada sistem 32-bit dan 64 bits pada sistem 64-bit.
-Saat anda membutuhkan nilai integer anda sebaiknya menggunakan tipe `int` kecuali anda memiliki alasan tertentu menggunakan tipe berukuran khusus atau _unsigned_integer_.
+Tipe `int`, `uint`, dan `uintptr` biasanya memiliki panjang 32 bits pada
+sistem 32-bit dan 64 bits pada sistem 64-bit.
+Saat anda membutuhkan nilai integer anda sebaiknya menggunakan tipe `int`
+kecuali anda memiliki alasan tertentu menggunakan tipe berukuran khusus atau
+_unsigned_integer_.
 
 .play basics/basic-types.go
 
@@ -180,27 +202,34 @@ Atau, sederhananya:
 	f := float64(i)
 	u := uint(f)
 
-Tidak seperti C, perintah pengisian nilai pada Go antara item dengan tipe berbeda membutuhkan konversi eksplisit.
-Coba hilangkan konversi `float64` atau `uint` pada contoh sebelah dan lihat apa yang terjadi.
+Tidak seperti C, perintah pengisian nilai pada Go antara item dengan tipe
+berbeda membutuhkan konversi eksplisit.
+Coba hilangkan konversi `float64` atau `uint` pada contoh sebelah dan lihat
+apa yang terjadi.
 
 .play basics/type-conversions.go
 
 * Inferensi tipe
 
-Saat mendeklarasikan sebuah variabel tanpa menentukan tipe eksplisitnya (baik menggunakan sintaks `:=` atau `var`), tipe variabel disamakan dengan nilai di sebelah kanannya.
+Saat mendeklarasikan sebuah variabel tanpa menentukan tipe eksplisitnya (baik
+menggunakan sintaks `:=` atau `var`), tipe variabel disamakan dengan nilai di
+sebelah kanannya.
 
-Bila sisi kanan dari deklarasi ditulis tipenya, maka variabel baru memiliki tipe yang sama:
+Bila sisi kanan dari deklarasi ditulis tipenya, maka variabel baru memiliki
+tipe yang sama:
 
 	var i int
 	j := i // j is an int
 
-Tapi bila sisi kanan berupa konstanta numerik, variabel baru bisa jadi `int`, `float64`, atau `complex128` bergantung kepada presisi dari konstanta:
+Tapi bila sisi kanan berupa konstanta numerik, variabel baru bisa jadi `int`,
+`float64`, atau `complex128` bergantung kepada presisi dari konstanta:
 
 	i := 42           // int
 	f := 3.142        // float64
 	g := 0.867 + 0.5i // complex128
 
-Coba ubah nilai awal dari `v` pada contoh kode dan perhatikan bagaimana tipenya berubah.
+Coba ubah nilai awal dari `v` pada contoh kode dan perhatikan bagaimana
+tipenya berubah.
 
 .play basics/type-inference.go
 
@@ -218,11 +247,13 @@ Konstanta tidak bisa dideklarasikan dengan sintaks `:=`.
 
 Konstanta numerik adalah _nilai_ dengan presisi-tinggi.
 
-Konstanta yang tidak bertipe menggunakan tipe yang dibutuhkan sesuai dengan konteksnya.
+Konstanta yang tidak bertipe menggunakan tipe yang dibutuhkan sesuai dengan
+konteksnya.
 
 Coba cetak juga `needInt(Big)`.
 
-(Sebuah `int` dapat menyimpan sebanyak 64-bit integer, dan terkadang lebih sedikit, bergantung kepada mesin anda.)
+(Sebuah `int` dapat menyimpan sebanyak 64-bit integer, dan terkadang lebih
+sedikit, bergantung kepada mesin anda.)
 
 .play basics/numeric-constants.go
 

@@ -9,15 +9,15 @@ https://golang.org
 Selamat datang di tur
 [[https://golang.org/][bahasa pemrograman Go]].
 
-Tur ini dibagi menjadi beberapa modul yang dapat anda akses dengan mengklik pada
-[[javascript:highlight(".logo")][Tur Go]]
-di bagian kiri atas halaman.
+Tur ini dibagi menjadi beberapa modul yang dapat anda akses dengan mengeklik
+pada [[javascript:highlight(".logo")][Tur Go]] di bagian kiri atas halaman.
 
-Anda juga dapat setiap saat melihat daftar isi dengan mengklik pada
+Anda juga dapat setiap saat melihat daftar isi dengan mengeklik pada
 [[javascript:highlightAndClick(".nav")][menu]]
 di kanan atas halaman.
 
-Selama tur ini anda akan menemukan sekumpulan slide dan latihan untuk anda kerjakan.
+Selama tur ini anda akan menemukan sekumpulan slide dan latihan untuk anda
+kerjakan.
 
 Anda bisa menavigasinya lewat
 
@@ -26,24 +26,25 @@ Anda bisa menavigasinya lewat
 - [[javascript:highlight(".next-page")]["selanjutnya"]] atau `PageDown` untuk ke halaman selanjutnya.
 
 Tur ini interaktif. Klik tombol
-[[javascript:highlightAndClick("#run")][Jalankan]]
-sekarang (atau tekan `shift-enter`) untuk mengkompilasi dan menjalankan program pada
+[[javascript:highlightAndClick("#run")][Jalan]]
+sekarang (atau tekan `shift-enter`) untuk mengkompilasi dan menjalankan
+program pada
 #appengine: server.
 komputer anda.
-Hasilnya akan ditampilkan di bawah kode.
+Hasilnya akan ditampilkan di kanan bawah.
 
 Contoh program tersebut menampilkan aspek dari Go.
 Program yang ada di tur ditujukan sebagai titik awal bagi eksperimen anda.
 
 Ubah program tersebut dan jalankan lagi.
 
-Ingatlah bahwa saat anda mengklik pada tombol
+Ingatlah bahwa saat anda mengeklik pada tombol
 [[javascript:highlightAndClick("#format")][Format]]
 atau `ctrl-enter`, teks di editor diformat menggunakan
 [[https://golang.org/cmd/gofmt/][gofmt]].
 
-Anda bisa mengaktifkan pewarnaan sintaks dengan mengklik pada tombol
-[[javascript:highlightAndClick(".syntax-checkbox"][sintaks]].
+Anda bisa mengaktifkan pewarnaan sintaks dengan mengeklik pada tombol
+[[javascript:highlightAndClick(".syntax-checkbox")][sintaks]].
 
 Saat anda selesai, klik
 [[javascript:highlightAndClick(".next-page")][panah kanan]]
@@ -78,20 +79,22 @@ atau tekan `PageDown` untuk melanjutkan.
 
 #appengine: * Go luring
 #appengine: 
-#appengine: Tur ini juga tersedia dalam sebuah program tersendiri yang dapat anda gunakan tanpa akses ke internet.
+#appengine: Tur ini juga tersedia dalam sebuah program tersendiri yang dapat
+#appengine: anda gunakan tanpa akses ke internet.
 #appengine: 
-#appengine: Tur yang berdiri sendiri lebih cepat, secara dia menjalankan kode program di komputer anda sendiri.
+#appengine: Tur yang berdiri sendiri lebih cepat, secara dia menjalankan kode
+#appengine: program di komputer anda sendiri.
 #appengine: 
 #appengine: Untuk menjalankan tur secara lokal, pertama
 #appengine: [[https://golang.org/dl/][unduh dan pasang Go]]
 #appengine: kemudian jalankan tur dengan cara:
 #appengine: 
-#appengine: 	go get golang.org/x/tour/gotour
-#appengine: 	go tour
+#appengine: 	$ go get golang.org/x/tour/gotour
+#appengine: 	$ go tool tour
 #appengine: 
 #appengine: Program tur akan membuka peramban menampilkan versi lokal dari tur
 #appengine: anda.
-#appengine: Atau, anda bisa tetap melanjutkan tur lewat situs ini.
+#appengine: Atau, anda bisa melanjutkan tur lewat situs ini.
 
 #appengine: * Go Playground
 #appengine: 
@@ -100,12 +103,12 @@ atau tekan `PageDown` untuk melanjutkan.
 #appengine: , sebuah layanan web yang berjalan di atas server
 #appengine: [[https://golang.org/][golang.org]].
 #appengine: 
-#appengine: Layanan tersebut menerima program Go, mengkompilasi, dan menjalankan program di dalam _sandbox_, dan mengembalikan keluaran.
+#appengine: Layanan tersebut menerima program Go, mengkompilasi, dan
+#appengine: menjalankan program di dalam _sandbox_, dan mengembalikan keluaran.
 #appengine: 
 #appengine: Ada batasan untuk program yang dapat berjalan di _playground_:
 #appengine: 
-#appengine: - Di _playground_ waktu dimulai dari 2009-11-10 23:00:00 UTC (mengetahui kenapa menggunakan tanggal tersebut adalah latihan bagi pembaca).
-#appengine: Hal ini membuat program lebih mudah di- _cache_ dengan memberikan keluaran yang pasti.
+#appengine: - Di _playground_ waktu dimulai dari 2009-11-10 23:00:00 UTC (mengetahui kenapa menggunakan tanggal tersebut adalah latihan bagi pembaca). Hal ini membuat program lebih mudah di- _cache_ dengan memberikan keluaran yang pasti.
 #appengine: 
 #appengine: - Waktu eksekusi, penggunaan CPU, dan _memory_ juga memiliki batasan, dan program tidak dapat mengakses jaringan eksternal.
 #appengine: 
@@ -113,7 +116,7 @@ atau tekan `PageDown` untuk melanjutkan.
 #appengine: 
 #appengine: Baca "
 #appengine: [[https://blog.golang.org/playground][Inside the Go Playground]]
-#appengine: " untuk belajar lebih lanjut.
+#appengine: " untuk mengetahui lebih lanjut.
 #appengine: 
 #appengine: .play welcome/sandbox.go
 
@@ -121,4 +124,7 @@ atau tekan `PageDown` untuk melanjutkan.
 
 Anda telah menyelesaikan modul pertama dari tur!
 
-Sekarang klik pada [[javascript:highlightAndClick(".logo")][Sebuah Tur dari Go]] untuk menemukan apa saja yang dapat anda pelajari tentang Go, atau langsung ke [[javascript:click(".next-page")][pelajaran selanjutnya]].
+Sekarang klik pada
+[[javascript:highlightAndClick(".logo")][Tur Bahasa Pemrograman Go]]
+untuk menemukan apa saja yang dapat anda pelajari tentang Go, atau langsung ke
+[[javascript:click(".next-page")][pelajaran selanjutnya]].
