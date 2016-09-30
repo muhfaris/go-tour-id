@@ -57,38 +57,47 @@ Perintah `if` mirip seperti pada C atau Java, kecuali tanda-kurung `(`)` dihilan
 
 * Kondisi "if" singkat
 
-Seperti pada `for`, perintah `if` bisa diawali dengan perintah singkat untuk dieksekusi sebelum kondisi.
+Seperti pada perintah `for`, perintah `if` bisa diawali dengan perintah
+singkat untuk dieksekusi sebelum kondisi.
 
-Variabel yang dideklarasikan pada perintah singkat tersebut hanya berlaku sampai lingkup sampai kondisi `if` berakhir.
+Variabel yang dideklarasikan pada perintah singkat tersebut hanya berlaku
+sampai lingkup kondisi `if` berakhir.
 
-(Coba gunakan `v` di akhir perintah `return`.)
+(Coba gunakan `v` di akhir perintah `return`, dan jalankan)
 
 .play flowcontrol/if-with-a-short-statement.go
 
 * Kondisi "if" dan "else"
 
-Variabel yang dideklarasikan dalam perintah singkat `if` juga dapat digunakan dalam blok `else`.
+Variabel yang dideklarasikan dalam perintah singkat `if` juga dapat digunakan
+dalam blok `else`.
 
-(Kedua pemanggilan terhadap `pow` dieksekusi sebelum pemanggilan `main` terhadap `fmt.Println` dilakukan.)
+(Pada contoh, kedua pemanggilan terhadap fungsi `pow` dieksekusi sebelum
+`main` memanggil `fmt.Println`.)
 
 .play flowcontrol/if-and-else.go
 
 * Latihan: Pengulangan dan Fungsi
 
-Cara sederhana untuk bermain dengan fungsi dan pengulangan, implementasikan fungsi akar kuadrat menggunakan metode Newton.
+Cara sederhana untuk bermain dengan fungsi dan pengulangan, yaitu dengan
+mengimplementasikan fungsi akar kuadrat menggunakan metode Newton.
 
-Pada kasus ini, metode Newton yaitu pendekatan dari `Sqrt(x)` dengan mengambil titik awal _z_ dan kemudian mengulangnya:
+Pada kasus ini, metode Newton yaitu pendekatan dari `Sqrt(x)` dengan mengambil
+titik awal _z_ dan kemudian mengulangnya:
 
 .image /content/img/newton.png
 
-Untuk memulai, ulangi perhitungan 10 kali dan lihat seberapa dekat anda mendapatkan jawabannya untuk berbagai nilai (1, 2, 3, ...).
+Sebagai permulaan, ulangi perhitungan 10 kali dan lihat seberapa dekat anda
+mendapatkan jawaban untuk berbagai nilai (misalnya untuk 1, 2, 3, ...).
 
-Selanjutnya, ubah kondisi pengulangan untuk berhenti saat nilainya sudah tidak berubah lagi (atau hanya berubah dengan delta yang sangat kecil).
-Lihat apakah iterasinya lebih sedikit atau banyak.
+Selanjutnya, ubah kondisi pengulangan untuk berhenti saat nilainya sudah tidak
+berubah lagi (atau hanya berubah dengan delta yang sangat kecil).
+Lihat apakah iterasinya lebih sedikit atau lebih banyak.
 Seberapa dekat hasil anda dengan nilai
 [[https://golang.org/pkg/math/#Sqrt][math.Sqrt]] ?
 
-Petunjuk: untuk mendeklarasikan dan menginisialisasi nilai _floating_point_, gunakan sintaks _floating_point_ atau konversi:
+Petunjuk: untuk mendeklarasikan dan menginisialisasi nilai _floating_point_,
+gunakan sintaks _floating_point_ atau konversi:
 
 	z := float64(1)
 	z := 1.0
@@ -99,13 +108,15 @@ Petunjuk: untuk mendeklarasikan dan menginisialisasi nilai _floating_point_, gun
 
 Anda mungkin sudah tahu seperti apa perintah `switch`.
 
-Bagian `case` secara otomatis mengeluarkan dari blok kondisi, kecuali berakhir dengan perintah `fallthrough`.
+Bagian `case` secara otomatis mengeluarkan dari blok kondisi, kecuali berakhir
+dengan perintah `fallthrough`.
 
 .play flowcontrol/switch.go
 
 * Urutan evaluasi "switch"
 
-Kondisi pada `switch` dievaluasi dari atas ke bawah, berhenti saat sebuah kondisi sukses.
+Kondisi pada `switch` dievaluasi dari atas ke bawah, berhenti saat sebuah
+kondisi sukses.
 
 Sebagai contoh,
 
@@ -116,7 +127,9 @@ Sebagai contoh,
 
 tidak akan memanggil fungsi `f` jika `i==0`.
 
-#appengine: *Catatan:* waktu dalam Go playground selalu berawal dari 2009-11-10 23:00:00 UTC, sebuah nilai yang makna bisa dicari oleh pembaca.
+#appengine: *Catatan:* waktu dalam Go playground selalu berawal dari
+#appengine: 2009-11-10 23:00:00 UTC, sebuah nilai yang maknanya bisa dicari
+#appengine: oleh pembaca.
 
 .play flowcontrol/switch-evaluation-order.go
 
@@ -124,22 +137,26 @@ tidak akan memanggil fungsi `f` jika `i==0`.
 
 Perintah `switch` tanpa sebuah kondisi sama seperti `switch`true`.
 
-Konstruksi ini merupakan cara yang bersih untuk menulis rantaian if-then-else yang panjang.
+Konstruksi ini merupakan cara yang bersih untuk menulis rantaian
+`if-then-else` yang panjang.
 
 .play flowcontrol/switch-with-no-condition.go
 
 * Perintah "defer"
 
-Perintah `defer` menunda eksekusi dari sebuah fungsi sampai fungsi yang melingkupinya selesai.
+Perintah `defer` menunda eksekusi dari sebuah fungsi sampai fungsi yang
+melingkupinya selesai.
 
-Argumen untuk pemanggilan `defer` dievaluasi langsung, tapi pemanggilan fungsi tidak dieksekusi sampai fungsi yang melingkupinya selesai.
+Argumen untuk pemanggilan `defer` dievaluasi langsung, tapi pemanggilan fungsi
+tidak dieksekusi sampai fungsi yang melingkupinya selesai.
 
 .play flowcontrol/defer.go
 
 * Penundaan bertumpuk
 
 Fungsi yang dipanggil dengan `defer` di- _push_ ke sebuah _stack_.
-Saat fungsi berakhir, panggilan yang tadi ditunda dieksekusi dengan urutan last-in-first-out (yang terakhir masuk menjadi pertama keluar).
+Saat fungsi berakhir, panggilan yang tadi ditunda dieksekusi dengan urutan
+last-in-first-out (yang terakhir masuk menjadi pertama keluar).
 
 Untuk belajar lebih lanjut tentang perintah `defer` bacalah
 [[https://blog.golang.org/defer-panic-and-recover][artikel berikut]].
