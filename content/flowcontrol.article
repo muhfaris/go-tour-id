@@ -20,7 +20,7 @@ dideklarasikan tersebut hanya dapat digunakan dalam skop perintah `for`.
 
 Pengulangan akan berhenti saat kondisi bernilai `false`.
 
-_Catatan_: Tidak seperti bahasa C, Java, atau Javascript, tidak ada tanda
+_Catatan_: Tidak seperti bahasa C, Java, atau JavaScript, tidak ada tanda
 kurung yang digunakan menutupi ketiga komponen dari perintah `for` dan tanda
 kurung kurawal `{`}` selalu dibutuhkan.
 
@@ -82,10 +82,14 @@ dalam blok `else`.
 Cara sederhana untuk bermain dengan fungsi dan pengulangan, yaitu dengan
 mengimplementasikan fungsi akar kuadrat menggunakan metode Newton.
 
-Pada kasus ini, metode Newton yaitu pendekatan dari `Sqrt(x)` dengan mengambil
+Metode Newton yaitu pendekatan dari `Sqrt(x)` dengan mengambil
 titik awal _z_ dan kemudian mengulangnya:
 
 .image /content/img/newton.png
+
+Petunjuk: Iterasi dan kembalikan nilai akhir dari _z_,
+
+	z -= (z * z - x) / (2*z)
 
 Sebagai permulaan, ulangi perhitungan 10 kali dan lihat seberapa dekat anda
 mendapatkan jawaban untuk berbagai nilai (misalnya untuk 1, 2, 3, ...).

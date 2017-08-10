@@ -20,10 +20,12 @@ dengan perintah `package`rand`.
 #appengine: *Catatan:* lingkungan dari program yang berjalan adalah
 #appengine: deterministik, jadi setiap kali anda menjalankan contoh program di
 #appengine: sebelah, `rand.Intn` akan selalu mengembalikan angka yang sama.
-#appengine: 
-#appengine: (Untuk mendapatkan angka yang acak, tambahkan pembangkit angka;
-#appengine: lihat fungsi
-#appengine: [[https://golang.org/pkg/math/rand/#Seed][`rand.Seed`]] .)
+#appengine:
+#appengine: Untuk mendapatkan angka yang acak, tambahkan pembangkit angka
+#appengine: (seed); lihat fungsi
+#appengine: [[https://golang.org/pkg/math/rand/#Seed][`rand.Seed`]].
+#appengine: Time adalah konstanta di playground ini, gunakan nilai lain untuk
+#appengine: pembangkit angka.
 
 .play basics/packages.go
 

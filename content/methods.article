@@ -73,7 +73,7 @@ Sekali lagi, coba hilangkan `*` pada baris 16.
 Bisakah anda melihat perubahan perilakunya?
 Apa yang harus anda ubah selanjutnya supaya contoh tersebut dapat di _compile_?
 
-(Jika anda tidak yakin, lanjutnya ke tahap berikutnya.)
+(Jika anda tidak yakin, lanjutkan ke tahap berikutnya.)
 
 .play methods/methods-pointers-explained.go
 
@@ -83,8 +83,8 @@ Bandingkan dua program sebelumnya, anda mungkin memperhatikan bahwa fungsi
 dengan sebuah argumen _pointer_ harus menerima sebuah _pointer_:
 
 	var V Vertex
-	ScaleFunc(v)  // Compile error!
-	ScaleFunc(&v) // OK
+	ScaleFunc(v, 5)  // Compile error!
+	ScaleFunc(&v, 5) // OK
 
 Sementara method dengan _pointer-receiver_ dapat menerima sebuah nilai atau
 sebuah _pointer_ sebagai _receiver_ saat dipanggil:

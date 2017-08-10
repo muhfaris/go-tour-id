@@ -89,10 +89,18 @@ Pada praktiknya, slice lebih umum digunakan daripada array.
 
 Sebuah tipe `[]T` adalah sebuah slice dengan elemen bertipe `T`.
 
-Ekspresi berikut membuat sebuah slice dari lima elemen pertama dari sebuah
-array `a`:
+Sebuah slice dibentuk dengan menspesifikasikan dua index, index rendah dan index
+tinggi, dipisahkan dengan karakter titik-dua:
 
-	a[0:5]
+	a[rendah:tinggi]
+
+Perintah di atas memilih rentang slice yang mengikutkan elemen pertama, tapi
+tidak mengikutkan elemen terakhir.
+
+Ekspresi berikut membuat sebuah slice yang mengikutkan elemen 1 sampai 3 dari
+slice `a`:
+
+	a[1:4]
 
 .play moretypes/slices.go
 
